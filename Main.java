@@ -3,8 +3,8 @@
  * The Main-class of the application. This class only holds the main()-method
  * to start the application.
  * 
- * @author asty
- * @version 1.0
+ * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
+ * @version 2019-03-06
  */
 public class Main 
 {
@@ -15,6 +15,6 @@ public class Main
     public static void main(String[] args)
     {
         ApplicationUI appUI = new ApplicationUI();
-        appUI.start();
+        appUI.startApplication();
     }
 }
