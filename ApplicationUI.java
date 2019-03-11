@@ -1,6 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Iterator;
+import java.util.ArrayList;
 
 /**
  * Makes up the user interface (text based) of the application.
@@ -21,7 +22,7 @@ public class ApplicationUI
     private String[] menuItems = {
         "1. List all newspapers",
         "2. Add new newspaper",
-        "3. Find a newspaper by name",
+        "3. Find a newspaper by title",
         "4. Add newspaperdummies to list",
     };
 
@@ -61,7 +62,7 @@ public class ApplicationUI
                         break;
 
                     case 3:
-                        this.findNewspaperByName();
+                        this.findNewspaperByTitle();
                         break;
                         
                     case 4:
@@ -201,15 +202,31 @@ public class ApplicationUI
      * @param  name the name of the newspaper to return from the register 
      * @return the item with the name provided in the parameter 
      */
-    void findNewspaperByName()
+    void findNewspaperByTitle()
     {
-        System.out.println("findNewspaperName() was called");
-           System.out.println("Please enter the title of the newspaper: ");
+        System.out.println("Please enter the title of the newspaper: ");
         Scanner reader = new Scanner(System.in);
-        String title = reader.nextLine();    
+        String title = reader.nextLine();   
+       
+        ArrayList<Newspaper> foundNewspapers = this.literatureReg.findNewspaperByTitle(title);
         
-        ArrayList<New....> result = this.literatureReg.findNewspaperByTitle(title);
-        
+        if (foundNewspapers.isEmpty())
+        {
+            System.out.println("Could not find any newspaper with this title.");
+            System.out.println();
+        }
+        else
+        {
+            for (Newspaper newspaper : foundNewspapers)
+            {
+                 System.out.println("Title: " + newspaper.getTitle());
+                 System.out.println("Publisher: " + newspaper.getPublisher());
+                 System.out.println("Genre: " + newspaper.getGenre());
+                 System.out.println("No of times published: " + newspaper.getTimesPublished());
+                 System.out.println();
+            }
+
+        }
     }
     
     void fillLiteratureRegisterWithDummies()
