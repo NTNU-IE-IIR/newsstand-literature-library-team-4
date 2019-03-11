@@ -9,6 +9,7 @@ import java.util.Iterator;
  * 
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
  * @version 2019-03-06
+ * Test kommentar
  */
 
 public class ApplicationUI 
