@@ -14,7 +14,7 @@ import java.util.Iterator;
  * List the complete inventory.
  * 
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
- * @version 2019-03-06
+ * @version 2019-03-18.
  */
 public class LiteratureRegister
 {
@@ -155,12 +155,12 @@ public class LiteratureRegister
         return foundNewspapers;
     }
     
-        public Iterator<Newspaper> getIterator()
+    public Iterator<Newspaper> getIterator()
     {
         return this.newspaperList.iterator();
     }
     
-        public boolean isLiteratureRegisterEmpty()
+    public boolean isLiteratureRegisterEmpty()
     {
         if(newspaperList.size() == 0)
         {

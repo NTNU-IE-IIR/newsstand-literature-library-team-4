@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Newspaper
-comment0.text=\n\ Represent\ the\ newspaper.\n\n\ @author\ Prosjektgruppe_4\:\ Karl-Oskar,\ Johannes,\ Anders.\n\ @version\ 2019.03.06\n
+comment0.text=\n\ Represent\ the\ newspaper.\n\n\ @author\ Prosjektgruppe_4\:\ Karl-Oskar,\ Johannes,\ Anders.\n\ @version\ 2019.03.18.\n
 comment1.params=title\ publisher\ genre\ timesPublished
 comment1.target=Newspaper(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Newspaper.\n\ @param\ title\ The\ title\ is\ the\ title\ of\ the\ newspaper\n\ @param\ publisher\ The\ publisheris\ the\ name\ of\ the\ organization\n\ who\ published\ this\ newspaper.\n\ @param\ genre\ The\ genre\ is\ the\ genre\ of\ the\ newspaper.\n\ @param\ timesPublished\ is\ the\ times\ this\ newspaper\ is\ published\ per\ year.\n

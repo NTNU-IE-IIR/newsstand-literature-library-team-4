@@ -9,8 +9,7 @@ import java.util.ArrayList;
  * and receiving input from the user.
  * 
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
- * @version 2019-03-06
- * Test kommentar
+ * @version 2019-03-18.
  */
 
 public class ApplicationUI 
@@ -119,7 +118,7 @@ public class ApplicationUI
     // ------ The methods below this line are "helper"-methods, used from the menu ----
     // ------ All these methods are made privat, since they are only used by the menu ---
     
-      /**
+    /**
      * Initializes the application.
      * Typically you would create the LiteratureRegistrer-instance here
      */
@@ -153,9 +152,6 @@ public class ApplicationUI
         }
     }
     }
-    
-
-    
     
     /**
      * Add a new product/literature to the register.

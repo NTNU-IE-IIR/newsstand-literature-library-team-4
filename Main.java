@@ -4,7 +4,7 @@
  * to start the application.
  * 
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
- * @version 2019-03-06
+ * @version 2019-03-18.
  */
 public class Main 
 {

@@ -1,15 +1,14 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+
 /**
- * The test class NewspaperTest.
+ * Tests class NewspaperTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
+ * @version 2019.03.18.
  */
 public class NewspaperTest
 {

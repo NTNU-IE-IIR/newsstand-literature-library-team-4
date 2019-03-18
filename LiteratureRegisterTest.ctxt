@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=LiteratureRegisterTest
-comment0.text=\n\ The\ test\ class\ LiteratureRegisterTest.\n\n\ @author\ \ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Tests\ the\ class\ LiteratureRegisterTest.\n\n\ @author\ Prosjektgruppe_4\:\ Karl-Oskar,\ Johannes,\ Anders.\n\ @version\ 2019.03.18.\n
 comment1.params=
 comment1.target=LiteratureRegisterTest()
 comment1.text=\n\ Default\ constructor\ for\ test\ class\ LiteratureRegisterTest\n
