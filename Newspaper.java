@@ -9,7 +9,7 @@ public class Newspaper
 {
     private String title;
     private String publisher;
-    private String genre;
+    private String litteratureType;
     private String timesPublished;
 
     /**
@@ -21,22 +21,22 @@ public class Newspaper
      * @param timesPublished is the times this newspaper is published per year.
      */
     public Newspaper(String title, String publisher, 
-                     String genre, String timesPublished)
+    String genre, String timesPublished)
     {
         if (title != null)
         {
-        this.title = title;
-    }
-    else
-    {
-        this.title ="INVALID VALUE";
-    }
+            this.title = title;
+        }
+        else
+        {
+            this.title ="INVALID VALUE";
+        }
         this.publisher = publisher;
-        this.genre = genre;  
+        this.litteratureType = litteratureType;  
         this.timesPublished = timesPublished;
     }
 
-        /**
+    /**
      * Constructor for objects of class Newspaper.
      * This constructor is used for making dummies
      * to test add method in Literatureregister.
@@ -45,10 +45,10 @@ public class Newspaper
     {
         this.title = "Adressa";
         this.publisher = "Adresseavisa";
-        this.genre = "News";
+        this.litteratureType = "Newspaper";
         this.timesPublished = "52 times a year, Once a week";
     }
-    
+
     /**
      * Returns the title of the newspaper.
      * @return the tile of the newspaper.
@@ -73,7 +73,7 @@ public class Newspaper
      */
     public String getGenre()
     {
-        return this.genre;
+        return this.litteratureType;
     }
 
     /**
@@ -93,8 +93,8 @@ public class Newspaper
     public String getDetails()
     {
         return "Title: " + title + ", " + 
-               "Publisher; "  + publisher + ", " +
-               "Genre: " + genre + ", " + 
-               "Times Published: " + timesPublished + ".";
+        "Publisher; "  + publisher + ", " +
+        "Genre: " + litteratureType + ", " + 
+        "Times Published: " + timesPublished + ".";
     }
 }
