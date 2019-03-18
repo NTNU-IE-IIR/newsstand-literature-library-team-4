@@ -5,29 +5,28 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Books
+public class Books extends Litterature
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private String author;
 
     /**
      * Constructor for objects of class Books
+     * @param title is the title of the book or book series.
+     * @param publisher is the publisher of the book or book series.
+     * @param author is the name of the author of the book or book series.
      */
-    public Books()
+    public Books(String title, String publisher, String author)
     {
-        // initialise instance variables
-        x = 0;
+        super(title, publisher);
+        this.author = checkValidStringInput(author);
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Author of the selected book or book series.
+     * @return the varible which holds the author.
      */
-    public int sampleMethod(int y)
+    public String getAuthor()
     {
-        // put your code here
-        return x + y;
+        return this.author;
     }
 }

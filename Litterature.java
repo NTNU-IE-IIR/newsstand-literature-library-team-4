@@ -1,5 +1,5 @@
 /**
- * Write a description of class Litterature here.
+ * Super class, holds information about litterature
  *
  * @author (your name)
  * @version (a version number or a date)
@@ -11,6 +11,8 @@ public class Litterature
 
     /**
      * Constructor for objects of class Litterature
+     * @param title is the title of the litterature
+     * @param publisher is the publisher of the litterature
      */
     public Litterature(String title, String publisher)
     {
@@ -34,7 +36,7 @@ public class Litterature
         }
         else
         {
-            stringToReturn ="INVALID VALUE";
+            stringToReturn = "INVALID VALUE";
             return stringToReturn;
         }
     }

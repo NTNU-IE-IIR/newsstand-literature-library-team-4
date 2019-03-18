@@ -1,33 +1,40 @@
 
 /**
- * Write a description of class Book here.
+ * Holds information about the Book
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Book
+public class Book extends Books
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private int bookEdition;
 
     /**
      * Constructor for objects of class Book
+     * @param title is the title of the book.
+     * @param publisher is the publisher of the book.
+     * @param author is the author of the book.
+     * @param bookEdition is the number of which edition the book is.
      */
-    public Book()
+    public Book(String title, String publisher, String author, int bookEdition)
     {
-        // initialise instance variables
-        x = 0;
+        super(title, publisher, author);
+        if (bookEdition < 1)
+        {
+            this.bookEdition = 9999;
+        }
+        else
+        {
+            this.bookEdition = bookEdition;
+        }
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Returns the number of which edition the book is.
+     * @return holds the variable of which edition the book is.
      */
-    public int sampleMethod(int y)
+    public int getBookEdition()
     {
-        // put your code here
-        return x + y;
+        return this.bookEdition;
     }
 }

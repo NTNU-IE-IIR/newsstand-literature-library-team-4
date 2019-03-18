@@ -1,33 +1,34 @@
 
 /**
- * Write a description of class PeriodicalPublications here.
+ * Holds information about the Periodical Publications.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class PeriodicalPublications
+public class PeriodicalPublications extends Litterature
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private String litteratureType;
+    private String timesPublished;
 
     /**
      * Constructor for objects of class PeriodicalPublications
+     * @param title is the title of the periodical publication.
+     * @param publisher is the publisher of the periodical publication.
+     * @param litteratureType is the type of the periodical publication.
      */
-    public PeriodicalPublications()
+    public PeriodicalPublications(String title, String publisher, String litteratureType)
     {
-        // initialise instance variables
-        x = 0;
+        super(title, publisher);
+        this.litteratureType = litteratureType;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Method to get the litterature type of the periodical publication
+     * @return is the variable which holds the litterature type to return.
      */
-    public int sampleMethod(int y)
+    public String getLitteratureType()
     {
-        // put your code here
-        return x + y;
+        return this.litteratureType;
     }
+
 }

@@ -1,24 +1,34 @@
 
 /**
- * Write a description of class Magazine here.
+ * Holds information about the Magazine type.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Magazine
+public class Magazine extends PeriodicalPublications
 {
-    private String title;
-    private String publisher;
-    private String litteratureType;
-    private String timesPublished;
     private String genre;
 
     /**
      * Constructor for objects of class Magazine
+     * @param title is the title of the magazine
+     * @param publisher is the publisher of the magazine
+     * @param litteratureType is the type of litterature this is (Magazine/Newspaper).
+     * @param genre is which genre (sports,fashion,gossip) the magazine is.
      */
-    public Magazine()
+    public Magazine(String title, String publisher, String litteratureType, String genre)
     {
-        // initialise instance variables
+        super(title, publisher, litteratureType);
+        this.genre = checkValidStringInput(genre);
         
+    }
+    
+    /**
+     * Gets information about which genre the magazine is.
+     * @return holds the variable of which genre the magazine is.
+     */
+    public String getGenre()
+    {
+        return this.genre;
     }
 }

@@ -1,33 +1,33 @@
 
 /**
- * Write a description of class BookSeries here.
+ * Class which holds information about a book series.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class BookSeries
+public class BookSeries extends Books
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private String bookSeriesTitle;
 
     /**
      * Constructor for objects of class BookSeries
+     * @param title is the title of the book series.
+     * @param publisher is the publisher of the book series.
+     * @param author is the name of the author of the book series.
+     * @param bookSeriesTitle is the name of the book series.
      */
-    public BookSeries()
+    public BookSeries(String title, String publisher, String author, String bookSeriesTitle)
     {
-        // initialise instance variables
-        x = 0;
+        super(title, publisher, author);
+        this.bookSeriesTitle = checkValidStringInput(bookSeriesTitle);
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Returns the title of the book series.
+     * @return variable which holds the title to return.
      */
-    public int sampleMethod(int y)
+    public String getBookSeriesTitle()
     {
-        // put your code here
-        return x + y;
+        return this.bookSeriesTitle;
     }
 }
