@@ -47,8 +47,8 @@ public class NewspaperTest
     @Test 
     public void testTitle() 
     {
-       Newspaper newspaper1 = new Newspaper("test","test","test","test");
-       assertEquals("test", newspaper1.getTitle());
+        Newspaper newspaper1 = new Newspaper("test", "test", "test", "test");
+        assertEquals("test", newspaper1.getTitle());
     }
     
     
@@ -59,21 +59,28 @@ public class NewspaperTest
     @Test 
     public void testTitleNeg() 
     {
-       Newspaper newspaper1 = new Newspaper(null,"test","test","test");
-       assertEquals("INVALID VALUE", newspaper1.getTitle());
+        Newspaper newspaper1 = new Newspaper(null, "test", "test", "test");
+        assertEquals("INVALID VALUE", newspaper1.getTitle());
     }    
     
+    /**
+     * Test that you can add a publisher.
+     */
     @Test
     public void testPublisher()
     {
-       Newspaper newspaper1 = new Newspaper("test", "test", "test", "test");
-       assertEquals("test", newspaper1.getPublisher());
+        Newspaper newspaper1 = new Newspaper("test", "test", "test", "test");
+        assertEquals("test", newspaper1.getPublisher());
     }
     
+    /**
+     * Test init.
+     */
     @Test
     public void testInit()
     {
-        Newspaper newspaper1 = new Newspaper("test name", "test", "test", "test");
+        Newspaper newspaper1 = new Newspaper("test name", "test", 
+                                             "test", "test");
         assertEquals("test name", newspaper1.getTitle());
         assertEquals(1000, newspaper1.getPublisher());
     }

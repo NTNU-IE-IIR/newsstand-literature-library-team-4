@@ -1,11 +1,11 @@
 
 /**
- * Write a description of class Books here.
- *
+ * Holds information about the bookclasses.
+ * 
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Books extends Litterature
+public class Books extends Literature
 {
     private String author;
 

@@ -13,10 +13,12 @@ public class Magazine extends PeriodicalPublications
      * Constructor for objects of class Magazine
      * @param title is the title of the magazine
      * @param publisher is the publisher of the magazine
-     * @param litteratureType is the type of litterature this is (Magazine/Newspaper).
+     * @param litteratureType is the type of litterature 
+     * this is (Magazine/Newspaper).
      * @param genre is which genre (sports,fashion,gossip) the magazine is.
      */
-    public Magazine(String title, String publisher, String litteratureType, String genre)
+    public Magazine(String title, String publisher, 
+                    String litteratureType, String genre)
     {
         super(title, publisher, litteratureType);
         this.genre = checkValidStringInput(genre);

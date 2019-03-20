@@ -5,30 +5,31 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class PeriodicalPublications extends Litterature
+public class PeriodicalPublications extends Literature
 {
-    private String litteratureType;
+    private String literatureType;
     private String timesPublished;
 
     /**
      * Constructor for objects of class PeriodicalPublications
      * @param title is the title of the periodical publication.
      * @param publisher is the publisher of the periodical publication.
-     * @param litteratureType is the type of the periodical publication.
+     * @param literatureType is the type of the periodical publication.
      */
-    public PeriodicalPublications(String title, String publisher, String litteratureType)
+    public PeriodicalPublications(String title, String publisher, 
+                                  String literatureType)
     {
         super(title, publisher);
-        this.litteratureType = litteratureType;
+        this.literatureType = literatureType;
     }
 
     /**
      * Method to get the litterature type of the periodical publication
      * @return is the variable which holds the litterature type to return.
      */
-    public String getLitteratureType()
+    public String getLiteratureType()
     {
-        return this.litteratureType;
+        return this.literatureType;
     }
 
 }

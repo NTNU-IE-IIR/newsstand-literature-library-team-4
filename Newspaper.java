@@ -29,7 +29,7 @@ public class Newspaper
         }
         else
         {
-            this.title ="INVALID VALUE";
+            this.title = "INVALID VALUE";
         }
         this.publisher = publisher;
         this.litteratureType = litteratureType;  
@@ -93,8 +93,8 @@ public class Newspaper
     public String getDetails()
     {
         return "Title: " + title + ", " + 
-        "Publisher; "  + publisher + ", " +
-        "Genre: " + litteratureType + ", " + 
-        "Times Published: " + timesPublished + ".";
+               "Publisher; "  + publisher + ", " +
+               "Genre: " + litteratureType + ", " + 
+               "Times Published: " + timesPublished + ".";
     }
 }

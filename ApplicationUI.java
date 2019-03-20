@@ -32,7 +32,7 @@ public class ApplicationUI
      */
     public ApplicationUI() 
     {
-       this.literatureReg = new LiteratureRegister();
+        this.literatureReg = new LiteratureRegister();
     }
 
     /**
@@ -69,7 +69,8 @@ public class ApplicationUI
                         break;
 
                     case 5:
-                        System.out.println("\nThank you for using Application v2019.03.06. Bye!\n");
+                        System.out.print("\nThank you for using Application");
+                        System.out.print("v2019.03.06. Bye!\n");
                         quit = true;
                         break;
 
@@ -78,7 +79,8 @@ public class ApplicationUI
             } 
             catch (InputMismatchException ime) 
             {
-             System.out.println("\nERROR: Please provide a number between 1 and " + this.menuItems.length + "..\n");
+                System.out.println("\nERROR: Please provide a number between" +
+                                   "\1 and " + this.menuItems.length + "..\n");
             }
         }        
         
@@ -90,8 +92,10 @@ public class ApplicationUI
      * If the user inputs anything else, an InputMismatchException is thrown. 
      * The method returns the valid input from the user.
      *
-     * @return the menu number (between 1 and max menu item number) provided by the user.
-     * @throws InputMismatchException if user enters an invalid number/menu choice
+     * @return the menu number (between 1 and max menu item number) provided 
+     * by the user.
+     * @throws InputMismatchException if user enters an invalid number/menu 
+     * choice
      */
     private int showMenu() throws InputMismatchException 
     {
@@ -104,7 +108,8 @@ public class ApplicationUI
         int maxMenuItemNumber = menuItems.length + 1;
         // Add the "Exit"-choice to the menu
         System.out.println(maxMenuItemNumber + ". Exit\n");
-        System.out.println("Please choose menu item (1-" + maxMenuItemNumber + "): ");
+        System.out.println("Please choose menu item (1-" + 
+                           maxMenuItemNumber + "): ");
         // Read input from user
         Scanner reader = new Scanner(System.in);
         int menuSelection = reader.nextInt();
@@ -115,8 +120,10 @@ public class ApplicationUI
         return menuSelection;
     }
     
-    // ------ The methods below this line are "helper"-methods, used from the menu ----
-    // ------ All these methods are made privat, since they are only used by the menu ---
+    // ------ The methods below this line are "helper"-methods, 
+    // ------ used from the menu ----
+    // ------ All these methods are made privat, 
+    // ------ since they are only used by the menu ---
     
     /**
      * Initializes the application.
@@ -133,24 +140,26 @@ public class ApplicationUI
      */
     private void listAllNewspapers()
     { 
-    Iterator<Newspaper> newspaperList = this.literatureReg.getIterator();
-    if(literatureReg.isLiteratureRegisterEmpty())
-    {
-        System.out.println("Newspaperlist is empty, please add newspaper to the list!");
-    }
-    else
-    {
-     while (newspaperList.hasNext())
+        Iterator<Newspaper> newspaperList = this.literatureReg.getIterator();
+        if (literatureReg.isLiteratureRegisterEmpty())
         {
-            Newspaper newspaper = newspaperList.next();
-            
-            System.out.println("Title: " + newspaper.getTitle());
-            System.out.println("Publisher: " + newspaper.getPublisher());
-            System.out.println("Genre: " + newspaper.getGenre());
-            System.out.println("No of times published: " + newspaper.getTimesPublished());
-            System.out.println();
+            System.out.println("Newspaperlist is empty, " +
+                               "please add newspaper to the list!");
         }
-    }
+        else
+        {
+            while (newspaperList.hasNext())
+            {   
+                Newspaper newspaper = newspaperList.next();
+            
+                System.out.println("Title: " + newspaper.getTitle() +
+                                   "\nPublisher: " + newspaper.getPublisher()
+                                   + "Genre: " + newspaper.getGenre() +
+                                   "No of times published: " 
+                                   + newspaper.getTimesPublished()
+                                   + "\n");
+            }   
+        }
     }
     
     /**
@@ -176,12 +185,14 @@ public class ApplicationUI
         System.out.println("Please enter the genre of the newspaper: ");
         String genre = reader.nextLine();
         
-        System.out.println("Please enter the number of publishes of the newspaper: ");
+        System.out.println("Please enter the number of publishes " 
+                           + "of the newspaper: ");
         String timesPublished = reader.nextLine();
         
 
         // Legg inn avisa i registeret
-        Newspaper newspaper = new Newspaper(title, publisher, genre, timesPublished);
+        Newspaper newspaper = new Newspaper(title, publisher, 
+                                            genre, timesPublished);
         this.literatureReg.addNewspaper(newspaper);
 
     }
@@ -194,9 +205,7 @@ public class ApplicationUI
      * to search for, and then use this string as input-
      * parameter to the method in the register-object.
      * Then, upon return from the register, you need
-     * to print the details of the found item.
-     * @param  name the name of the newspaper to return from the register 
-     * @return the item with the name provided in the parameter 
+     * to print the details of the found item.  
      */
     void findNewspaperByTitle()
     {
@@ -204,7 +213,8 @@ public class ApplicationUI
         Scanner reader = new Scanner(System.in);
         String title = reader.nextLine();   
        
-        ArrayList<Newspaper> foundNewspapers = this.literatureReg.findNewspaperByTitle(title);
+        ArrayList<Newspaper> foundNewspapers = 
+                                 this.literatureReg.findNewspaperByTitle(title);
         
         if (foundNewspapers.isEmpty())
         {
@@ -215,16 +225,20 @@ public class ApplicationUI
         {
             for (Newspaper newspaper : foundNewspapers)
             {
-                 System.out.println("Title: " + newspaper.getTitle());
-                 System.out.println("Publisher: " + newspaper.getPublisher());
-                 System.out.println("Genre: " + newspaper.getGenre());
-                 System.out.println("No of times published: " + newspaper.getTimesPublished());
-                 System.out.println();
+                System.out.println("Title: " + newspaper.getTitle() 
+                                   + "Publisher: " + newspaper.getPublisher()
+                                   + "Genre: " + newspaper.getGenre()
+                                   + "No of times published: "
+                                   + newspaper.getTimesPublished()
+                                   + "\n ");
             }
 
         }
     }
     
+    /**
+     * Fills the literatureregister with dummies for testing.
+     */
     void fillLiteratureRegisterWithDummies()
     {
         this.literatureReg.addNewspaper(new Newspaper
