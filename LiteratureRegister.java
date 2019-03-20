@@ -45,7 +45,7 @@ public class LiteratureRegister
      */
     public ArrayList<Newspaper> findNewspaperByTitle(String title)
     {
-        ArrayList<Newspaper> foundNewspapers = new ArrayList<>();
+        ArrayList<Newspaper> foundNewspapers = new ArrayList<Newspaper>();
 
         Iterator<Newspaper> it = this.newspaperList.iterator();
         while (it.hasNext())
@@ -67,7 +67,8 @@ public class LiteratureRegister
      */
     public ArrayList<Newspaper> findNewspaperByPublisher(String publisher)
     {
-        ArrayList<Newspaper> foundNewspapers = new ArrayList<>();       
+        ArrayList<Newspaper> foundNewspapers = 
+                                          new ArrayList<Newspaper>();       
 
         Iterator<Newspaper> it = this.newspaperList.iterator();
         while (it.hasNext())
@@ -142,11 +143,13 @@ public class LiteratureRegister
 
     /**
      * Show a list of all the newspapers in the collection.
+     * 
+     @return List of all newspapers.
      */
     public ArrayList<Newspaper> listAllNewspapers()
     {
         Iterator<Newspaper> it = this.newspaperList.iterator();
-        ArrayList<Newspaper> foundNewspapers = new ArrayList<>();
+        ArrayList<Newspaper> foundNewspapers = new ArrayList<Newspaper>();
         while (it.hasNext())
         {
             Newspaper newspaper = it.next();
@@ -155,14 +158,22 @@ public class LiteratureRegister
         return foundNewspapers;
     }
     
+    /**
+     * Getting the iterator.
+     @return Newspaperlist Iterator.
+     */
     public Iterator<Newspaper> getIterator()
     {
         return this.newspaperList.iterator();
     }
     
+    /**
+     * Checks if the register contains any objects.
+     @return true if the register cointains objects, false otherwise.
+     */
     public boolean isLiteratureRegisterEmpty()
     {
-        if(newspaperList.size() == 0)
+        if (newspaperList.size() == 0)
         {
             return true;
         }
