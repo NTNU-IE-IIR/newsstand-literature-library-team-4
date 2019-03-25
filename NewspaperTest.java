@@ -53,7 +53,7 @@ public class NewspaperTest
     
     
     /**
-     * Test that a comment can be added, and that the comment is correct
+     * Test that a title can be added, and that the title is correct
      * 
      */
     @Test 
