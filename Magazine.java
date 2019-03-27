@@ -5,7 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Magazine extends PeriodicalPublications
+public class Magazine extends PeriodicalPublication
 {
     private String genre;
 
@@ -18,9 +18,9 @@ public class Magazine extends PeriodicalPublications
      * @param genre is which genre (sports,fashion,gossip) the magazine is.
      */
     public Magazine(String title, String publisher, 
-                    String litteratureType, String genre)
+                    String literatureType, String genre)
     {
-        super(title, publisher, litteratureType);
+        super(title, publisher, literatureType);
         this.genre = checkValidStringInput(genre);
         
     }

@@ -5,7 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class PeriodicalPublications extends Literature
+public class PeriodicalPublication extends Literature
 {
     private String literatureType;
     private String timesPublished;
@@ -16,7 +16,7 @@ public class PeriodicalPublications extends Literature
      * @param publisher is the publisher of the periodical publication.
      * @param literatureType is the type of the periodical publication.
      */
-    public PeriodicalPublications(String title, String publisher, 
+    public PeriodicalPublication(String title, String publisher, 
                                   String literatureType)
     {
         super(title, publisher);
