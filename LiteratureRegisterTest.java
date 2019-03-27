@@ -58,9 +58,9 @@ public class LiteratureRegisterTest
     public void testFindNewspaperByTitle()
     {
         LiteratureRegister literatu1 = new LiteratureRegister();
-        Newspaper newspape1 = new Newspaper();
-        literatu1.addNewspaper(newspape1);Newspaper newspaper1 = new Newspaper("test name", "test", "test", "test"); 
-        literatu1.findNewspaperByTitle("test name");
+        Newspaper newspape1 = new Newspaper("test name", "test", "test", "test");
+        literatu1.addNewspaper(newspape1);
+        assertSame("test name", newspape1.getTitle());
     }
     
     /**
@@ -70,8 +70,9 @@ public class LiteratureRegisterTest
     public void testFindNewspaperByTitleNeg()
     {
         LiteratureRegister literatu1 = new LiteratureRegister();
-        Newspaper newspape1 = new Newspaper();
-        literatu1.addNewspaper(newspape1);Newspaper newspaper1 = new Newspaper(null, "test", "test", "test"); 
-        literatu1.findNewspaperByTitle("test name");
+        Newspaper newspape1 = new Newspaper(null, "test", "test", "test");
+        literatu1.addNewspaper(newspape1);
+        assertEquals("INVALID VALUE", newspape1.getTitle());
     }
 }
+
