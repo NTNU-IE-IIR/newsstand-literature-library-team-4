@@ -39,40 +39,40 @@ public class LiteratureRegisterTest
     }
     
     //addNewspaper(null);
-    /**
-     * Test that a newspaper can be added, and that the title is correct
-     * 
-     */
-    @Test 
-    public void testAddNewspaper() 
-    {
-        LiteratureRegister literatu1 = new LiteratureRegister();
-        Newspaper newspape1 = new Newspaper();
-        literatu1.addNewspaper(newspape1);Newspaper newspaper1 = new Newspaper("test", "test", "test", "test"); 
-    }
+    // /**
+     // * Test that a newspaper can be added, and that the title is correct
+     // * 
+     // */
+    // @Test 
+    // public void testAddNewspaper() 
+    // {
+        // LiteratureRegister literatu1 = new LiteratureRegister();
+        // Newspaper newspape1 = new Newspaper();
+        // literatu1.addNewspaper(newspape1);Newspaper newspaper1 = new Newspaper("test", "test", "test", "test"); 
+    // }
     
-    /**
-     * Test the method of finding newspapers by title.
-     */
-    @Test
-    public void testFindNewspaperByTitle()
-    {
-        LiteratureRegister literatu1 = new LiteratureRegister();
-        Newspaper newspape1 = new Newspaper("test name", "test", "test", "test");
-        literatu1.addNewspaper(newspape1);
-        assertSame("test name", newspape1.getTitle());
-    }
+    // /**
+     // * Test the method of finding newspapers by title.
+     // */
+    // @Test
+    // public void testFindNewspaperByTitle()
+    // {
+        // LiteratureRegister literatu1 = new LiteratureRegister();
+        // Newspaper newspape1 = new Newspaper("test name", "test", "test", "test");
+        // literatu1.addNewspaper(newspape1);
+        // assertSame("test name", newspape1.getTitle());
+    // }
     
-    /**
-     * Test the method of finding newspapers by title.
-     */
-    @Test
-    public void testFindNewspaperByTitleNeg()
-    {
-        LiteratureRegister literatu1 = new LiteratureRegister();
-        Newspaper newspape1 = new Newspaper(null, "test", "test", "test");
-        literatu1.addNewspaper(newspape1);
-        assertEquals("INVALID VALUE", newspape1.getTitle());
-    }
+    // /**
+     // * Test the method of finding newspapers by title.
+     // */
+    // @Test
+    // public void testFindNewspaperByTitleNeg()
+    // {
+        // LiteratureRegister literatu1 = new LiteratureRegister();
+        // Newspaper newspape1 = new Newspaper(null, "test", "test", "test");
+        // literatu1.addNewspaper(newspape1);
+        // assertEquals("INVALID VALUE", newspape1.getTitle());
+    // }
 }
 

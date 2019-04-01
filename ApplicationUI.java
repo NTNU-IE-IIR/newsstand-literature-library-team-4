@@ -14,19 +14,19 @@ import java.util.ArrayList;
 
 public class ApplicationUI 
 {
- 
+
     // The menu tha will be displayed. Please edit/alter the menu
     // to fit your application (i.e. replace "prodct" with "litterature"
     // etc.
     private String[] menuItems = {
-        "1. List all newspapers",
-        "2. Add new newspaper",
-        "3. Find a newspaper by title",
-        "4. Add newspaperdummies to list",
-    };
+            "1. List all literature",
+            "2. Add new newspaper",
+            "3. Find a newspaper by title",
+            "4. Add newspaperdummies to list",
+        };
 
     private LiteratureRegister literatureReg;
-    
+
     /**
      * Creates an instance of the ApplicationUI User interface. 
      */
@@ -53,26 +53,26 @@ public class ApplicationUI
                 switch (menuSelection) 
                 {
                     case 1:
-                        this.listAllNewspapers();
-                        break;
+                    this.listAllLiterature();
+                    break;
 
                     case 2:
-                        this.addNewNewspaper();
-                        break;
+                    this.addNewNewspaper();
+                    break;
 
                     case 3:
-                        this.findNewspaperByTitle();
-                        break;
-                        
+                    this.findLiteratureByTitle();
+                    break;
+
                     case 4:
-                        this.fillLiteratureRegisterWithDummies();
-                        break;
+                    this.fillLiteratureRegisterWithDummies();
+                    break;
 
                     case 5:
-                        System.out.print("\nThank you for using Application");
-                        System.out.print("v2019.03.06. Bye!\n");
-                        quit = true;
-                        break;
+                    System.out.print("\nThank you for using Application");
+                    System.out.print("v2019.03.06. Bye!\n");
+                    quit = true;
+                    break;
 
                     default:
                 }
@@ -80,10 +80,10 @@ public class ApplicationUI
             catch (InputMismatchException ime) 
             {
                 System.out.println("\nERROR: Please provide a number between" +
-                                   "\1 and " + this.menuItems.length + "..\n");
+                    "\1 and " + this.menuItems.length + "..\n");
             }
         }        
-        
+
     }
 
     /**
@@ -109,7 +109,7 @@ public class ApplicationUI
         // Add the "Exit"-choice to the menu
         System.out.println(maxMenuItemNumber + ". Exit\n");
         System.out.println("Please choose menu item (1-" + 
-                           maxMenuItemNumber + "): ");
+            maxMenuItemNumber + "): ");
         // Read input from user
         Scanner reader = new Scanner(System.in);
         int menuSelection = reader.nextInt();
@@ -119,12 +119,12 @@ public class ApplicationUI
         }
         return menuSelection;
     }
-    
+
     // ------ The methods below this line are "helper"-methods, 
     // ------ used from the menu ----
     // ------ All these methods are made privat, 
     // ------ since they are only used by the menu ---
-    
+
     /**
      * Initializes the application.
      * Typically you would create the LiteratureRegistrer-instance here
@@ -135,33 +135,49 @@ public class ApplicationUI
     }
 
     /**
-      * Lists all the products/literature in the register
-      * @return the list of all newspaper in the register 
+     * Lists all the products/literature in the register
+     * @return the list of all newspaper in the register 
      */
-    private void listAllNewspapers()
+    private void listAllLiterature()
     { 
-        Iterator<Newspaper> newspaperList = this.literatureReg.getIterator();
+        Iterator<Literature> literatureList = this.literatureReg.getIterator();
         if (literatureReg.isLiteratureRegisterEmpty())
         {
-            System.out.println("Newspaperlist is empty, " +
-                               "please add newspaper to the list!");
+            System.out.println("Literaturelist is empty, " +
+                "please add any literature to the list!");
         }
         else
         {
-            while (newspaperList.hasNext())
+            System.out.println();
+            System.out.println("List of all literature:");
+            while (literatureList.hasNext())
             {   
-                Newspaper newspaper = newspaperList.next();
-            
-                System.out.println("Title: " + newspaper.getTitle() +
-                                   "\nPublisher: " + newspaper.getPublisher()
-                                   + "Genre: " + newspaper.getGenre() +
-                                   "No of times published: " 
-                                   + newspaper.getTimesPublished()
-                                   + "\n");
+                Literature literature = literatureList.next();
+
+                if(literature instanceof Newspaper)
+                {
+                    Newspaper newspaper = (Newspaper) literature;
+                    System.out.println("Title: " + newspaper.getTitle() +
+                        "\nPublisher: " + newspaper.getPublisher() +
+                        "\nLiteraturetype: " + newspaper.getLiteratureType() +
+                        "\nTimespublished: " + newspaper.getTimesPublished()
+                        + "\n");
+                }
+                
+                if(literature instanceof Magazine)
+                {
+                    Magazine magazine = (Magazine) literature;
+                    System.out.println("Title: " + magazine.getTitle() +
+                        "\nPublisher: " + magazine.getPublisher() +
+                        "\nLiteraturetype: " + magazine.getLiteratureType() +
+                        "\nGenre: " + magazine.getGenre()
+                        + "\n");
+                }
+
             }   
         }
     }
-    
+
     /**
      * Add a new product/literature to the register.
      * In this method you have to add code to ask the
@@ -178,25 +194,23 @@ public class ApplicationUI
         System.out.println("Please enter the title of the newspaper: ");
         Scanner reader = new Scanner(System.in);
         String title = reader.nextLine();
-        
+
         System.out.println("Please enter the publisher of the newspaper: ");
         String publisher = reader.nextLine();
-        
-        System.out.println("Please enter the genre of the newspaper: ");
-        String genre = reader.nextLine();
-        
+
+        System.out.println("Please enter the literaturetype: ");
+        String literatureType = reader.nextLine();
+
         System.out.println("Please enter the number of publishes " 
-                           + "of the newspaper: ");
+            + "of the newspaper: ");
         String timesPublished = reader.nextLine();
-        
 
         // Legg inn avisa i registeret
-        Newspaper newspaper = new Newspaper(title, publisher, 
-                                            genre, timesPublished);
-        this.literatureReg.addNewspaper(newspaper);
+        Literature literature = new Newspaper(title, publisher, 
+                literatureType, timesPublished);
+        this.literatureReg.addLiterature(literature);
 
     }
-  
 
     /**
      * Find and display a product based om name (title).
@@ -207,49 +221,55 @@ public class ApplicationUI
      * Then, upon return from the register, you need
      * to print the details of the found item.  
      */
-    void findNewspaperByTitle()
+    void findLiteratureByTitle()
     {
-        System.out.println("Please enter the title of the newspaper: ");
+        System.out.println("Please enter the title of the literature: ");
         Scanner reader = new Scanner(System.in);
         String title = reader.nextLine();   
-       
-        ArrayList<Newspaper> foundNewspapers = 
-                                 this.literatureReg.findNewspaperByTitle(title);
-        
-        if (foundNewspapers.isEmpty())
+
+        ArrayList<Literature> foundLiterature = 
+            this.literatureReg.findLiteratureByTitle(title);
+
+        if (foundLiterature.isEmpty())
         {
-            System.out.println("Could not find any newspaper with this title.");
+            System.out.println("Could not find any literature with this title.");
             System.out.println();
         }
         else
         {
-            for (Newspaper newspaper : foundNewspapers)
+            System.out.println();
+            System.out.println("Literature found:");
+            for (Literature literature : foundLiterature)
             {
-                System.out.println("Title: " + newspaper.getTitle() 
-                                   + "Publisher: " + newspaper.getPublisher()
-                                   + "Genre: " + newspaper.getGenre()
-                                   + "No of times published: "
-                                   + newspaper.getTimesPublished()
-                                   + "\n ");
+                if(literature instanceof Newspaper)
+                {
+                    Newspaper newspaper = (Newspaper) literature;
+                    System.out.println("Title: " + newspaper.getTitle() +
+                        "\nPublisher: " + newspaper.getPublisher() +
+                        "\nLiteraturetype: " + newspaper.getLiteratureType() +
+                        "\nTimespublished: " + newspaper.getTimesPublished()
+                        + "\n");
+                }
             }
 
         }
     }
-    
+
     /**
      * Fills the literatureregister with dummies for testing.
      */
     void fillLiteratureRegisterWithDummies()
     {
-        this.literatureReg.addNewspaper(new Newspaper
-        ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
-        this.literatureReg.addNewspaper(new Newspaper
-        ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
-        this.literatureReg.addNewspaper(new Newspaper
-        ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
-        this.literatureReg.addNewspaper(new Newspaper
-        ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
-        this.literatureReg.addNewspaper(new Newspaper
-        ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
+        this.literatureReg.addLiterature(new Newspaper
+            ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
+        this.literatureReg.addLiterature(new Newspaper
+            ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
+        this.literatureReg.addLiterature(new Newspaper
+            ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
+        this.literatureReg.addLiterature(new Newspaper
+            ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
+            
+        this.literatureReg.addLiterature(new Magazine
+            ("Teknisk Ukeblad", "TU Media", "Magazine", "Technology"));
     }
 }

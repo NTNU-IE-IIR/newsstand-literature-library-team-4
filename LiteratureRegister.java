@@ -19,79 +19,137 @@ import java.util.Iterator;
 public class LiteratureRegister
 {
     // An ArrayList for storing newspaper.
-    private ArrayList<Newspaper> newspaperList;
+    //private ArrayList<Newspaper> newspaperList;
+    
+    //An arraylist for the Literature superclass,
+    private ArrayList<Literature> literatureList;
 
     /**
      * Constructor for objects of class LiteratureRegister
      */
     public LiteratureRegister()
     {
-        this.newspaperList = new ArrayList<Newspaper>();
+        //this.newspaperList = new ArrayList<Newspaper>();
+        this.literatureList = new ArrayList<Literature>();
     }
 
+    // /**
+     // * Method for adding newspaper in Literature register.
+     // * @param newspaper The title of the newspaper
+     // */
+    // public void addNewspaper(Newspaper newspaper)
+    // {
+        // this.newspaperList.add(newspaper);
+    // }
+    
     /**
-     * Method for adding newspaper in Literature register.
-     * @param newspaper The title of the newspaper
+     * Method for adding literature to the literature register
+     * param literature is the literature to be added to the list
      */
-    public void addNewspaper(Newspaper newspaper)
+    public void addLiterature(Literature literature)
     {
-        this.newspaperList.add(newspaper);
+        this.literatureList.add(literature);
     }
 
-    /**
+    // /**
+     // * Method for finding newspapers in literature by name.
+     // * @param title The title of newspapers.
+     // * @return the title of the newspapers.
+     // */
+    // public ArrayList<Newspaper> findNewspaperByTitle(String title)
+    // {
+        // ArrayList<Newspaper> foundNewspapers = new ArrayList<Newspaper>();
+
+        // Iterator<Newspaper> it = this.newspaperList.iterator();
+        // while (it.hasNext())
+        // {
+            // Newspaper p = it.next();
+            // if (p.getTitle().equalsIgnoreCase(title))
+            // {
+                // foundNewspapers.add(p);
+            // }
+        // }
+
+        // return foundNewspapers;
+    // }
+    
+        /**
      * Method for finding newspapers in literature by name.
      * @param title The title of newspapers.
      * @return the title of the newspapers.
      */
-    public ArrayList<Newspaper> findNewspaperByTitle(String title)
+    public ArrayList<Literature> findLiteratureByTitle(String title)
     {
-        ArrayList<Newspaper> foundNewspapers = new ArrayList<Newspaper>();
+        ArrayList<Literature> foundLiterature = new ArrayList<Literature>();
 
-        Iterator<Newspaper> it = this.newspaperList.iterator();
+        Iterator<Literature> it = this.literatureList.iterator();
         while (it.hasNext())
         {
-            Newspaper p = it.next();
-            if (p.getTitle().equalsIgnoreCase(title))
+            Literature l = it.next();
+            if (l.getTitle().equalsIgnoreCase(title))
             {
-                foundNewspapers.add(p);
+                foundLiterature.add(l);
             }
         }
 
-        return foundNewspapers;
+        return foundLiterature;
     }
 
-    /**
+    // /**
+     // * Method for finding newspapers in literature by publisher.
+     // * @param publisher The publisher of newspapers.
+     // * @return the title of the newspapers.
+     // */
+    // public ArrayList<Newspaper> findNewspaperByPublisher(String publisher)
+    // {
+        // ArrayList<Newspaper> foundNewspapers = 
+                                          // new ArrayList<Newspaper>();       
+
+        // Iterator<Newspaper> it = this.newspaperList.iterator();
+        // while (it.hasNext())
+        // {
+            // Newspaper p = it.next();
+            // if (p.getPublisher().equalsIgnoreCase(publisher))
+            // {
+                // foundNewspapers.add(p);
+            // }
+        // }
+
+        // return foundNewspapers;
+    // }
+    
+        /**
      * Method for finding newspapers in literature by publisher.
      * @param publisher The publisher of newspapers.
      * @return the title of the newspapers.
      */
-    public ArrayList<Newspaper> findNewspaperByPublisher(String publisher)
+    public ArrayList<Literature> findLiteratureByPublisher(String publisher)
     {
-        ArrayList<Newspaper> foundNewspapers = 
-                                          new ArrayList<Newspaper>();       
+        ArrayList<Literature> foundLiterature = 
+                                          new ArrayList<Literature>();       
 
-        Iterator<Newspaper> it = this.newspaperList.iterator();
+        Iterator<Literature> it = this.literatureList.iterator();
         while (it.hasNext())
         {
-            Newspaper p = it.next();
-            if (p.getPublisher().equalsIgnoreCase(publisher))
+            Literature l = it.next();
+            if (l.getPublisher().equalsIgnoreCase(publisher))
             {
-                foundNewspapers.add(p);
+                foundLiterature.add(l);
             }
         }
 
-        return foundNewspapers;
+        return foundLiterature;
     }
 
     /**
      * Remove a newspaper from the collection.
      * @param index The index of the newspaper to be removed.
      */
-    public void removeNewspaper(int index)
+    public void removeLiterature(int index)
     {
         if (indexValid(index)) 
         {
-            newspaperList.remove(index);
+            literatureList.remove(index);
         }
     }
 
@@ -112,7 +170,7 @@ public class LiteratureRegister
             System.out.println("Index cannot be negative: " + index);
             valid = false;
         }
-        else if (index >= newspaperList.size()) 
+        else if (index >= literatureList.size()) 
         {
             System.out.println("Index is too large: " + index);
             valid = false;
@@ -124,47 +182,64 @@ public class LiteratureRegister
         return valid;
     }
 
-    /**
-     * Test method to check if the literature register works.
-     */
-    public void fillLiteratureRegisterWithDummies()
-    {
-        this.newspaperList.add(new Newspaper
-        ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
-        this.newspaperList.add(new Newspaper
-        ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
-        this.newspaperList.add(new Newspaper
-        ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
-        this.newspaperList.add(new Newspaper
-        ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
-        this.newspaperList.add(new Newspaper
-        ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
-    }
+    // /**
+     // * Test method to check if the literature register works.
+     // */
+    // public void fillLiteratureRegisterWithDummies()
+    // {
+        // this.newspaperList.add(new Newspaper
+        // ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
+        // this.newspaperList.add(new Newspaper
+        // ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
+        // this.newspaperList.add(new Newspaper
+        // ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
+        // this.newspaperList.add(new Newspaper
+        // ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
+        // this.newspaperList.add(new Newspaper
+        // ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
+    // }
+    
+        // /**
+     // * Test method to check if the literature register works.
+     // */
+    // public void fillLiteratureRegisterWithDummies()
+    // {
+        // this.literatureList.add(new Newspaper
+        // ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
+        // this.literatureList.add(new Newspaper
+        // ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
+        // this.literatureList.add(new Newspaper
+        // ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
+        // this.literatureList.add(new Newspaper
+        // ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
+        // this.literatureList.add(new Newspaper
+        // ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
+    // }
 
     /**
      * Show a list of all the newspapers in the collection.
      * 
      @return List of all newspapers.
      */
-    public ArrayList<Newspaper> listAllNewspapers()
+    public ArrayList<Literature> listAllLiterature()
     {
-        Iterator<Newspaper> it = this.newspaperList.iterator();
-        ArrayList<Newspaper> foundNewspapers = new ArrayList<Newspaper>();
+        Iterator<Literature> it = this.literatureList.iterator();
+        ArrayList<Literature> foundLiterature = new ArrayList<Literature>();
         while (it.hasNext())
         {
-            Newspaper newspaper = it.next();
-            foundNewspapers.add(newspaper);
+            Literature literature = it.next();
+            foundLiterature.add(literature);
         }
-        return foundNewspapers;
+        return foundLiterature;
     }
     
     /**
      * Getting the iterator.
      @return Newspaperlist Iterator.
      */
-    public Iterator<Newspaper> getIterator()
+    public Iterator<Literature> getIterator()
     {
-        return this.newspaperList.iterator();
+        return this.literatureList.iterator();
     }
     
     /**
@@ -173,7 +248,7 @@ public class LiteratureRegister
      */
     public boolean isLiteratureRegisterEmpty()
     {
-        if (newspaperList.size() == 0)
+        if (literatureList.size() == 0)
         {
             return true;
         }

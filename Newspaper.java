@@ -5,11 +5,8 @@
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
  * @version 2019.03.18.
  */
-public class Newspaper
+public class Newspaper extends PeriodicalPublication
 {
-    private String title;
-    private String publisher;
-    private String litteratureType;
     private String timesPublished;
 
     /**
@@ -21,60 +18,63 @@ public class Newspaper
      * @param timesPublished is the times this newspaper is published per year.
      */
     public Newspaper(String title, String publisher, 
-    String genre, String timesPublished)
+    String literatureType, String timesPublished)
     {
-        if (title != null)
-        {
-            this.title = title;
-        }
-        else
-        {
-            this.title = "INVALID VALUE";
-        }
-        this.publisher = publisher;
-        this.litteratureType = litteratureType;  
-        this.timesPublished = timesPublished;
+        super(title, publisher, literatureType);
+        this.timesPublished = checkValidStringInput(timesPublished);
+        
+        // if (title != null)
+        // {
+            // this.title = title;
+        // }
+        // else
+        // {
+            // this.title = "INVALID VALUE";
+        // }
+        // this.publisher = publisher;
+        // this.litteratureType = litteratureType;  
+        // this.timesPublished = timesPublished;
     }
 
-    /**
-     * Constructor for objects of class Newspaper.
-     * This constructor is used for making dummies
-     * to test add method in Literatureregister.
-     */
-    public Newspaper()
-    {
-        this.title = "Adressa";
-        this.publisher = "Adresseavisa";
-        this.litteratureType = "Newspaper";
-        this.timesPublished = "52 times a year, Once a week";
-    }
+    // /**
+     // * Constructor for objects of class Newspaper.
+     // * This constructor is used for making dummies
+     // * to test add method in Literatureregister.
+     // */
+    // public Newspaper()
+    // {
+        // this.title = "Adressa";
+        // this.publisher = "Adresseavisa";
+        // this.litteratureType = "Newspaper";
+        // this.timesPublished = "52 times a year, Once a week";
+    // }
 
-    /**
-     * Returns the title of the newspaper.
-     * @return the tile of the newspaper.
-     */
-    public String getTitle()
-    {
-        return this.title;
-    }
+    // /**
+     // * Returns the title of the newspaper.
+     // * @return the tile of the newspaper.
+     // */
+    // public String getTitle()
+    // {
+        // return this.title;
+    // }
 
-    /**
-     * Returns the publisher of the newspaper.
-     * @return the publisher of the newspaper.
-     */
-    public String getPublisher()
-    {
-        return this.publisher;
-    }
+    // /**
+     // * Returns the publisher of the newspaper.
+     // * @return the publisher of the newspaper.
+     // */
+    // public String getPublisher()
+    // {
+        // return this.publisher;
+    // }
 
-    /**
-     * Returns the genre of the newspaper.
-     * @return the genre of the newspaper.    
-     */
-    public String getGenre()
-    {
-        return this.litteratureType;
-    }
+    // /**
+     // * Returns the genre of the newspaper.
+     // * @return the genre of the newspaper.    
+     // */
+    // public String getliteratureType()
+    // {
+        // return this.literatureType;
+    // }
 
     /**
      * Returns the times this newspaper is published in a year.
@@ -92,9 +92,9 @@ public class Newspaper
      */
     public String getDetails()
     {
-        return "Title: " + title + ", " + 
-               "Publisher; "  + publisher + ", " +
-               "Genre: " + litteratureType + ", " + 
+        return "Title: " + getTitle() + ", " + 
+               "Publisher; "  + getPublisher() + ", " +
+               "Literaturetype: " + getLiteratureType() + ", " + 
                "Times Published: " + timesPublished + ".";
     }
 }
