@@ -4,7 +4,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Literature
+public abstract class Literature
 {
     private String title;
     private String publisher;

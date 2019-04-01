@@ -5,7 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class PeriodicalPublication extends Literature
+public abstract class PeriodicalPublication extends Literature
 {
     private String literatureType;
     private String timesPublished;

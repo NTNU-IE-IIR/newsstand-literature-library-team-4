@@ -157,9 +157,8 @@ public class ApplicationUI
                 if(literature instanceof Newspaper)
                 {
                     Newspaper newspaper = (Newspaper) literature;
-                    System.out.println("Title: " + newspaper.getTitle() +
-                        "\nPublisher: " + newspaper.getPublisher() +
-                        "\nLiteraturetype: " + newspaper.getLiteratureType() +
+                    printLiteratureInformation(newspaper);
+                    System.out.println("Literaturetype: " + newspaper.getLiteratureType() +
                         "\nTimespublished: " + newspaper.getTimesPublished()
                         + "\n");
                 }
@@ -167,7 +166,7 @@ public class ApplicationUI
                 if(literature instanceof Magazine)
                 {
                     Magazine magazine = (Magazine) literature;
-                    printGeneralInformation(magazine);
+                    printLiteratureInformation(magazine);
                     System.out.println("Literaturetype: " + magazine.getLiteratureType() +
                         "\nGenre: " + magazine.getGenre()
                         + "\n");
@@ -177,7 +176,7 @@ public class ApplicationUI
         }
     }
 
-    private void printGeneralInformation(Literature literature)
+    private void printLiteratureInformation(Literature literature)
     {
         System.out.println("Title: " + literature.getTitle() +
                            "\nPublisher: " + literature.getPublisher());
@@ -216,6 +215,7 @@ public class ApplicationUI
         this.literatureReg.addLiterature(literature);
 
     }
+    
 
     /**
      * Find and display a product based om name (title).

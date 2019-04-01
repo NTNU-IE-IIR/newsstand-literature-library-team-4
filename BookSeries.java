@@ -5,7 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class BookSeries extends Books
+public class BookSeries extends Literature
 {
     private String bookSeriesTitle;
     private int numberOfBooks;
@@ -20,7 +20,7 @@ public class BookSeries extends Books
     public BookSeries(String title, String publisher, 
                       String author, String bookSeriesTitle, int numberOfBooks)
     {
-        super(title, publisher, author);
+        super(title, publisher);
         this.bookSeriesTitle = checkValidStringInput(bookSeriesTitle);
         this.numberOfBooks = numberOfBooks;
     }

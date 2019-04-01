@@ -45,7 +45,7 @@ public class BookSeriesTest
      * 
      */
     @Test 
-    public void testTitle() 
+    public void testGetTitle() 
     {
         BookSeries bookSeri1 = new BookSeries("test", "test", "test", "test", 1);
         assertEquals("test", bookSeri1.getTitle());

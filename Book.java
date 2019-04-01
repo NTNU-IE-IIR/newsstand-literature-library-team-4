@@ -5,9 +5,10 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Book extends Books
+public class Book extends Literature
 {
     private int bookEdition;
+    private String author;
 
     /**
      * Constructor for objects of class Book
@@ -18,7 +19,7 @@ public class Book extends Books
      */
     public Book(String title, String publisher, String author, int bookEdition)
     {
-        super(title, publisher, author);
+        super(title, publisher);
         if (bookEdition < 1)
         {
             this.bookEdition = 9999;

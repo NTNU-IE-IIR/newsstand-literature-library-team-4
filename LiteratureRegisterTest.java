@@ -39,17 +39,17 @@ public class LiteratureRegisterTest
     }
     
     //addNewspaper(null);
-    // /**
-     // * Test that a newspaper can be added, and that the title is correct
-     // * 
-     // */
-    // @Test 
-    // public void testAddNewspaper() 
-    // {
-        // LiteratureRegister literatu1 = new LiteratureRegister();
-        // Newspaper newspape1 = new Newspaper();
-        // literatu1.addNewspaper(newspape1);Newspaper newspaper1 = new Newspaper("test", "test", "test", "test"); 
-    // }
+     /**
+     * Test that a newspaper can be added, and that the title is correct
+     * 
+     */
+     @Test 
+    public void testAddNewspaper() 
+    {
+        LiteratureRegister literatu1 = new LiteratureRegister();
+        Literature newspape1 = new Newspaper("test", "test", "test", "test");
+        literatu1.addLiterature(newspape1);
+    }
     
     // /**
      // * Test the method of finding newspapers by title.
