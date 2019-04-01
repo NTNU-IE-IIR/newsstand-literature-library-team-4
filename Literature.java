@@ -8,6 +8,7 @@ public class Literature
 {
     private String title;
     private String publisher;
+    private String literatureType;
 
     /**
      * Constructor for objects of class Litterature
@@ -59,4 +60,5 @@ public class Literature
     {
         return this.publisher;
     }
+
 }

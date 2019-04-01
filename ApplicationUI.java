@@ -167,9 +167,8 @@ public class ApplicationUI
                 if(literature instanceof Magazine)
                 {
                     Magazine magazine = (Magazine) literature;
-                    System.out.println("Title: " + magazine.getTitle() +
-                        "\nPublisher: " + magazine.getPublisher() +
-                        "\nLiteraturetype: " + magazine.getLiteratureType() +
+                    printGeneralInformation(magazine);
+                    System.out.println("Literaturetype: " + magazine.getLiteratureType() +
                         "\nGenre: " + magazine.getGenre()
                         + "\n");
                 }
@@ -178,6 +177,12 @@ public class ApplicationUI
         }
     }
 
+    private void printGeneralInformation(Literature literature)
+    {
+        System.out.println("Title: " + literature.getTitle() +
+                           "\nPublisher: " + literature.getPublisher());
+    }
+    
     /**
      * Add a new product/literature to the register.
      * In this method you have to add code to ask the
@@ -268,8 +273,12 @@ public class ApplicationUI
             ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
         this.literatureReg.addLiterature(new Newspaper
             ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
-            
         this.literatureReg.addLiterature(new Magazine
             ("Teknisk Ukeblad", "TU Media", "Magazine", "Technology"));
+        this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber", "Bloomsburry",
+                                                         "J.K Rowlings", "Harry Potter",
+                                                          8));
+        this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
+                                                  3));
     }
 }

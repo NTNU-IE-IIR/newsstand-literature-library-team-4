@@ -8,6 +8,7 @@
 public class BookSeries extends Books
 {
     private String bookSeriesTitle;
+    private int numberOfBooks;
 
     /**
      * Constructor for objects of class BookSeries
@@ -17,10 +18,11 @@ public class BookSeries extends Books
      * @param bookSeriesTitle is the name of the book series.
      */
     public BookSeries(String title, String publisher, 
-                      String author, String bookSeriesTitle)
+                      String author, String bookSeriesTitle, int numberOfBooks)
     {
         super(title, publisher, author);
         this.bookSeriesTitle = checkValidStringInput(bookSeriesTitle);
+        this.numberOfBooks = numberOfBooks;
     }
 
     /**
