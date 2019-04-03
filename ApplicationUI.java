@@ -241,7 +241,7 @@ public class ApplicationUI
         Scanner reader = new Scanner(System.in);
         String title = reader.nextLine();
 
-        System.out.println("Please enter the publisher of the magazine: ");
+        System.out.println("Please enter the publisher of the tabloid: ");
         String publisher = reader.nextLine();
 
         System.out.println("Please enter the literaturetype: ");
@@ -496,7 +496,7 @@ public class ApplicationUI
                 {
                     BookSeries bookserie = (BookSeries) literature;
                     printLiteratureInformation(bookserie);
-                    System.out.println("Title of the serie: " + bookserie.getBookSerieTitle() +
+                    System.out.println("Title of the serie: " + bookserie.getBookSeriesTitle() +
                         "\nNumber of books: " + bookserie.getNumberOfBooks()
                         + "\n");
                 }
@@ -526,7 +526,7 @@ public class ApplicationUI
             ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
         this.literatureReg.addLiterature(new Magazine
             ("Teknisk Ukeblad", "TU Media", "Magazine", "Technology"));
-        this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber", "Bloomsburry",
+        this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber",
                                                          "J.K Rowlings", "Harry Potter",
                                                           8));
         this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
