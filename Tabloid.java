@@ -1,5 +1,9 @@
 /**
+<<<<<<< HEAD
+ * Represent the tabloid.
+=======
  * Represent the Tabloid.
+>>>>>>> 106f0055be10940136b32ce745dc1eb17363d6e2
  *
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
  * @version 2019.03.18.

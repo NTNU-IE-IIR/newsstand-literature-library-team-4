@@ -18,7 +18,7 @@ public class BookSeries extends Literature
      * @param bookSeriesTitle is the name of the book series.
      */
     public BookSeries(String title, String publisher, 
-                      String author, String bookSeriesTitle, int numberOfBooks)
+                      String bookSeriesTitle, int numberOfBooks)
     {
         super(title, publisher);
         this.bookSeriesTitle = checkValidStringInput(bookSeriesTitle);

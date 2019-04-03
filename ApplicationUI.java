@@ -19,10 +19,15 @@ public class ApplicationUI
     // to fit your application (i.e. replace "prodct" with "litterature"
     // etc.
     private String[] menuItems = {
-            "1. List all literature",
-            "2. Add new newspaper",
-            "3. Find a newspaper by title",
-            "4. Add newspaperdummies to list",
+            "1. Add new newspaper",
+            "2. Add new magazine",
+            "3. Add new tabloid",
+            "4. Add new book",
+            "5. Add new bookserie",
+            "6. Find literature by title",
+            "7. Find literature by publisher",
+            "8. List all literature",
+            "9. Add newspaperdummies to list",
         };
 
     private LiteratureRegister literatureReg;
@@ -53,22 +58,41 @@ public class ApplicationUI
                 switch (menuSelection) 
                 {
                     case 1:
-                    this.listAllLiterature();
-                    break;
-
-                    case 2:
                     this.addNewNewspaper();
+                    break;
+                    
+                    case 2:
+                    this.addNewMagazine();
                     break;
 
                     case 3:
-                    this.findLiteratureByTitle();
+                    this.addNewTabloid();
+                    break;
+                    
+                    case 4:
+                    this.addNewBook();
+                    break;
+                    
+                    case 5:
+                    this.addNewBookSeries();
                     break;
 
-                    case 4:
+                    case 6:
+                    this.findLiteratureByTitle();
+                    
+                    case 7:
+                    this.findLiteratureByPublisher();
+                    break;
+                    
+                    case 8:
+                    this.listAllLiterature();
+                    break;
+
+                    case 9:
                     this.fillLiteratureRegisterWithDummies();
                     break;
 
-                    case 5:
+                    case 10:
                     System.out.print("\nThank you for using Application");
                     System.out.print("v2019.03.06. Bye!\n");
                     quit = true;
@@ -134,55 +158,7 @@ public class ApplicationUI
         System.out.println("init() was called"); 
     }
 
-    /**
-     * Lists all the products/literature in the register
-     * @return the list of all newspaper in the register 
-     */
-    private void listAllLiterature()
-    { 
-        Iterator<Literature> literatureList = this.literatureReg.getIterator();
-        if (literatureReg.isLiteratureRegisterEmpty())
-        {
-            System.out.println("Literaturelist is empty, " +
-                "please add any literature to the list!");
-        }
-        else
-        {
-            System.out.println();
-            System.out.println("List of all literature:");
-            while (literatureList.hasNext())
-            {   
-                Literature literature = literatureList.next();
-
-                if(literature instanceof Newspaper)
-                {
-                    Newspaper newspaper = (Newspaper) literature;
-                    printLiteratureInformation(newspaper);
-                    System.out.println("Literaturetype: " + newspaper.getLiteratureType() +
-                        "\nTimespublished: " + newspaper.getTimesPublished()
-                        + "\n");
-                }
-                
-                if(literature instanceof Magazine)
-                {
-                    Magazine magazine = (Magazine) literature;
-                    printLiteratureInformation(magazine);
-                    System.out.println("Literaturetype: " + magazine.getLiteratureType() +
-                        "\nGenre: " + magazine.getGenre()
-                        + "\n");
-                }
-
-            }   
-        }
-    }
-
-    private void printLiteratureInformation(Literature literature)
-    {
-        System.out.println("Title: " + literature.getTitle() +
-                           "\nPublisher: " + literature.getPublisher());
-    }
-    
-    /**
+        /**
      * Add a new product/literature to the register.
      * In this method you have to add code to ask the
      * user for the necessary information you need to 
@@ -216,7 +192,137 @@ public class ApplicationUI
 
     }
     
+        /**
+     * Add a new product/literature to the register.
+     * In this method you have to add code to ask the
+     * user for the necessary information you need to 
+     * create an instance of the product, which you
+     * then send as a parameter to the addNewspaper()-
+     * method of the register.
+     * Remember to also handle invalid input from the
+     * user!!
+     */
+    void addNewMagazine()
+    {
+        // Brukeren har nå valgt å legge til en avis
+        System.out.println("Please enter the title of the magazine: ");
+        Scanner reader = new Scanner(System.in);
+        String title = reader.nextLine();
 
+        System.out.println("Please enter the publisher of the magazine: ");
+        String publisher = reader.nextLine();
+
+        System.out.println("Please enter the literaturetype: ");
+        String literatureType = reader.nextLine();
+
+        System.out.println("Please enter the genre of the magazine ");
+        String genre = reader.nextLine();
+
+        // Legg inn avisa i registeret
+        Literature literature = new Magazine(title, publisher, 
+                literatureType, genre);
+        this.literatureReg.addLiterature(literature);
+    }
+    
+        /**
+     * Add a new product/literature to the register.
+     * In this method you have to add code to ask the
+     * user for the necessary information you need to 
+     * create an instance of the product, which you
+     * then send as a parameter to the addNewspaper()-
+     * method of the register.
+     * Remember to also handle invalid input from the
+     * user!!
+     */
+    void addNewTabloid()
+    {
+        // Brukeren har nå valgt å legge til en avis
+        System.out.println("Please enter the title of the tabloid: ");
+        Scanner reader = new Scanner(System.in);
+        String title = reader.nextLine();
+
+        System.out.println("Please enter the publisher of the magazine: ");
+        String publisher = reader.nextLine();
+
+        System.out.println("Please enter the literaturetype: ");
+        String literatureType = reader.nextLine();
+
+        System.out.println("Please enter the number of publishes " 
+            + "of the tabloid: ");
+        String timesPublished = reader.nextLine();
+
+        // Legg inn avisa i registeret
+        Literature literature = new Magazine(title, publisher, 
+                literatureType, timesPublished);
+        this.literatureReg.addLiterature(literature);
+    }
+    
+    /**
+     * Add a new product/literature to the register.
+     * In this method you have to add code to ask the
+     * user for the necessary information you need to 
+     * create an instance of the product, which you
+     * then send as a parameter to the addNewspaper()-
+     * method of the register.
+     * Remember to also handle invalid input from the
+     * user!!
+     */
+    void addNewBook()
+    {
+        // Brukeren har nå valgt å legge til en avis
+        System.out.println("Please enter the title of the book: ");
+        Scanner reader = new Scanner(System.in);
+        String title = reader.nextLine();
+
+        System.out.println("Please enter the publisher of the book: ");
+        String publisher = reader.nextLine();
+
+        System.out.println("Please enter the author of this book: ");
+        String author = reader.nextLine();
+
+        System.out.println("Please enter the bookedition: ");
+        int bookEdition = reader.nextInt();
+
+        // Legg inn avisa i registeret
+        Literature literature = new Book(title, publisher, 
+                author, bookEdition);
+        this.literatureReg.addLiterature(literature);
+
+    }
+    
+
+    /**
+     * Add a new product/literature to the register.
+     * In this method you have to add code to ask the
+     * user for the necessary information you need to 
+     * create an instance of the product, which you
+     * then send as a parameter to the addNewspaper()-
+     * method of the register.
+     * Remember to also handle invalid input from the
+     * user!!
+     */
+    void addNewBookSeries()
+    {
+        // Brukeren har nå valgt å legge til en avis
+        System.out.println("Please enter the title of the bookseries: ");
+        Scanner reader = new Scanner(System.in);
+        String title = reader.nextLine();
+
+        System.out.println("Please enter the publisher of the bookseries: ");
+        String publisher = reader.nextLine();
+
+        System.out.println("Please enter the title of the book serie: ");
+        String bookSeriesTitle = reader.nextLine();
+
+        System.out.println("Please enter the number of books in the serie");
+        int numberOfBooks = reader.nextInt();
+
+        // Legg inn avisa i registeret
+        Literature literature = new BookSeries(title, publisher, 
+                  bookSeriesTitle, numberOfBooks);
+        this.literatureReg.addLiterature(literature);
+    }
+    
     /**
      * Find and display a product based om name (title).
      * As with the addNewProduct()-method, you have to
@@ -258,6 +364,151 @@ public class ApplicationUI
             }
 
         }
+    }
+    
+    private void findLiteratureByPublisher()
+    {
+        System.out.println("Please enter the title of the literature: ");
+        Scanner reader = new Scanner(System.in);
+        String title = reader.nextLine();   
+
+        ArrayList<Literature> foundLiterature = 
+            this.literatureReg.findLiteratureByTitle(title);
+
+        if (foundLiterature.isEmpty())
+        {
+            System.out.println("Could not find any literature with this title.");
+            System.out.println();
+        }
+        else
+        {
+            System.out.println();
+            System.out.println("Literature found:");
+            for (Literature literature : foundLiterature)
+            {
+                if(literature instanceof Newspaper)
+                {
+                    Newspaper newspaper = (Newspaper) literature;
+                    printLiteratureInformation(newspaper);
+                    System.out.println("Literaturetype: " + newspaper.getLiteratureType() +
+                        "\nTimespublished: " + newspaper.getTimesPublished()
+                        + "\n");
+                }
+                
+                if(literature instanceof Magazine)
+                {
+                    Magazine magazine = (Magazine) literature;
+                    printLiteratureInformation(magazine);
+                    System.out.println("Literaturetype: " + magazine.getLiteratureType() +
+                        "\nGenre: " + magazine.getGenre()
+                        + "\n");
+                }
+                
+                if(literature instanceof Tabloid)
+                {
+                    Tabloid tabloid = (Tabloid) literature;
+                    printLiteratureInformation(tabloid);
+                    System.out.println("Literaturetype: " + tabloid.getLiteratureType() +
+                        "\nTimespublished: " + tabloid.getTimesPublished()
+                        + "\n");
+                }
+                
+                if(literature instanceof Book)
+                {
+                    Book book = (Book) literature;
+                    printLiteratureInformation(book);
+                    System.out.println("Author: " + book.getAuthor() +
+                        "\nBookediton: " + book.getbookEdition()
+                        + "\n");
+                }
+                
+                if(literature instanceof BookSeries)
+                {
+                    BookSeries bookserie = (BookSeries) literature;
+                    printLiteratureInformation(bookserie);
+                    System.out.println("Title of the serie: " + bookserie.getBookSerieTitle() +
+                        "\nNumber of books: " + bookserie.getNumberOfBooks()
+                        + "\n");
+                }
+
+            }
+
+        }
+    }
+    
+    /**
+     * Lists all the products/literature in the register
+     * @return the list of all newspaper in the register 
+     */
+    private void listAllLiterature()
+    { 
+        Iterator<Literature> literatureList = this.literatureReg.getIterator();
+        if (literatureReg.isLiteratureRegisterEmpty())
+        {
+            System.out.println("Literaturelist is empty, " +
+                "please add any literature to the list!");
+        }
+        else
+        {
+            System.out.println();
+            System.out.println("List of all literature:");
+            while (literatureList.hasNext())
+            {   
+                Literature literature = literatureList.next();
+
+                if(literature instanceof Newspaper)
+                {
+                    Newspaper newspaper = (Newspaper) literature;
+                    printLiteratureInformation(newspaper);
+                    System.out.println("Literaturetype: " + newspaper.getLiteratureType() +
+                        "\nTimespublished: " + newspaper.getTimesPublished()
+                        + "\n");
+                }
+                
+                if(literature instanceof Magazine)
+                {
+                    Magazine magazine = (Magazine) literature;
+                    printLiteratureInformation(magazine);
+                    System.out.println("Literaturetype: " + magazine.getLiteratureType() +
+                        "\nGenre: " + magazine.getGenre()
+                        + "\n");
+                }
+                
+                if(literature instanceof Tabloid)
+                {
+                    Tabloid tabloid = (Tabloid) literature;
+                    printLiteratureInformation(tabloid);
+                    System.out.println("Literaturetype: " + tabloid.getLiteratureType() +
+                        "\nTimespublished: " + tabloid.getTimesPublished()
+                        + "\n");
+                }
+                
+                if(literature instanceof Book)
+                {
+                    Book book = (Book) literature;
+                    printLiteratureInformation(book);
+                    System.out.println("Author: " + book.getAuthor() +
+                        "\nBookediton: " + book.getbookEdition()
+                        + "\n");
+                }
+                
+                if(literature instanceof BookSeries)
+                {
+                    BookSeries bookserie = (BookSeries) literature;
+                    printLiteratureInformation(bookserie);
+                    System.out.println("Title of the serie: " + bookserie.getBookSerieTitle() +
+                        "\nNumber of books: " + bookserie.getNumberOfBooks()
+                        + "\n");
+                }
+
+            }   
+        }
+    }
+
+    private void printLiteratureInformation(Literature literature)
+    {
+        System.out.println("Title: " + literature.getTitle() +
+                           "\nPublisher: " + literature.getPublisher());
     }
 
     /**
