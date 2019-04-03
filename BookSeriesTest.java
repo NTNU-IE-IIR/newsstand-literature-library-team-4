@@ -47,7 +47,7 @@ public class BookSeriesTest
     @Test 
     public void testGetTitle() 
     {
-        BookSeries bookSeri1 = new BookSeries("test", "test", "test", "test", 1);
+        BookSeries bookSeri1 = new BookSeries("test", "test", "test", 1);
         assertEquals("test", bookSeri1.getTitle());
     }
     
@@ -58,7 +58,7 @@ public class BookSeriesTest
     @Test 
     public void testTitleNeg() 
     {
-        BookSeries bookSeri1 = new BookSeries(null, "test", "test", "test", 1);
+        BookSeries bookSeri1 = new BookSeries(null, "test", "test", 1);
         assertEquals("INVALID VALUE", bookSeri1.getTitle());
     }    
     
@@ -68,7 +68,7 @@ public class BookSeriesTest
     @Test
     public void testPublisher()
     {
-        BookSeries bookSeri1 = new BookSeries("test", "test", "test", "test", 1);
+        BookSeries bookSeri1 = new BookSeries("test", "test", "test", 1);
         assertEquals("test", bookSeri1.getPublisher());
     }
     
@@ -79,7 +79,7 @@ public class BookSeriesTest
     public void testInit()
     {
         BookSeries bookSeri1 = new BookSeries("test name", "1000",
-                                              "test", "test", 1);
+                                              "test", 1);
         assertEquals("test name", bookSeri1.getTitle());
         assertEquals("1000", bookSeri1.getPublisher());
     }

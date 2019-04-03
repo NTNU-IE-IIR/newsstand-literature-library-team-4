@@ -418,7 +418,7 @@ public class ApplicationUI
                     Book book = (Book) literature;
                     printLiteratureInformation(book);
                     System.out.println("Author: " + book.getAuthor() +
-                        "\nBookediton: " + book.getbookEdition()
+                        "\nBookediton: " + book.getBookEdition()
                         + "\n");
                 }
                 
@@ -426,7 +426,7 @@ public class ApplicationUI
                 {
                     BookSeries bookserie = (BookSeries) literature;
                     printLiteratureInformation(bookserie);
-                    System.out.println("Title of the serie: " + bookserie.getBookSerieTitle() +
+                    System.out.println("Title of the serie: " + bookserie.getBookSeriesTitle() +
                         "\nNumber of books: " + bookserie.getNumberOfBooks()
                         + "\n");
                 }
@@ -488,7 +488,7 @@ public class ApplicationUI
                     Book book = (Book) literature;
                     printLiteratureInformation(book);
                     System.out.println("Author: " + book.getAuthor() +
-                        "\nBookediton: " + book.getbookEdition()
+                        "\nBookediton: " + book.getBookEdition()
                         + "\n");
                 }
                 
@@ -496,7 +496,7 @@ public class ApplicationUI
                 {
                     BookSeries bookserie = (BookSeries) literature;
                     printLiteratureInformation(bookserie);
-                    System.out.println("Title of the serie: " + bookserie.getBookSerieTitle() +
+                    System.out.println("Title of the serie: " + bookserie.getBookSeriesTitle() +
                         "\nNumber of books: " + bookserie.getNumberOfBooks()
                         + "\n");
                 }
@@ -527,8 +527,7 @@ public class ApplicationUI
         this.literatureReg.addLiterature(new Magazine
             ("Teknisk Ukeblad", "TU Media", "Magazine", "Technology"));
         this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber", "Bloomsburry",
-                                                         "J.K Rowlings", "Harry Potter",
-                                                          8));
+                                                         "Harry Potter", 8));
         this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
                                                   3));
     }
