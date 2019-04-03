@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @version 2019-03-18.
  */
 
-public class ApplicationUI 
+public class ApplicationUI
 {
 
     // The menu tha will be displayed. Please edit/alter the menu
