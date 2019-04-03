@@ -418,7 +418,7 @@ public class ApplicationUI
                     Book book = (Book) literature;
                     printLiteratureInformation(book);
                     System.out.println("Author: " + book.getAuthor() +
-                        "\nBookediton: " + book.getbookEdition()
+                        "\nBookediton: " + book.getBookEdition()
                         + "\n");
                 }
                 
@@ -426,7 +426,7 @@ public class ApplicationUI
                 {
                     BookSeries bookserie = (BookSeries) literature;
                     printLiteratureInformation(bookserie);
-                    System.out.println("Title of the serie: " + bookserie.getBookSerieTitle() +
+                    System.out.println("Title of the serie: " + bookserie.getBookSeriesTitle() +
                         "\nNumber of books: " + bookserie.getNumberOfBooks()
                         + "\n");
                 }
@@ -488,7 +488,7 @@ public class ApplicationUI
                     Book book = (Book) literature;
                     printLiteratureInformation(book);
                     System.out.println("Author: " + book.getAuthor() +
-                        "\nBookediton: " + book.getbookEdition()
+                        "\nBookediton: " + book.getBookEdition()
                         + "\n");
                 }
                 
@@ -526,9 +526,14 @@ public class ApplicationUI
             ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
         this.literatureReg.addLiterature(new Magazine
             ("Teknisk Ukeblad", "TU Media", "Magazine", "Technology"));
+<<<<<<< HEAD
         this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber",
                                                          "J.K Rowlings", "Harry Potter",
                                                           8));
+=======
+        this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber", "Bloomsburry",
+                                                         "Harry Potter", 8));
+>>>>>>> 1fd5d4ffdfd527ea254279c1dccf266c4fd9ecf4
         this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
                                                   3));
     }

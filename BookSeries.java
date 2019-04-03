@@ -33,4 +33,13 @@ public class BookSeries extends Literature
     {
         return this.bookSeriesTitle;
     }
+    
+    /**
+     * Return the number of books in the serie.
+     * @return number of books in the serie.
+     */
+    protected int getNumberOfBooks()
+    {
+        return this.numberOfBooks;
+    }
 }

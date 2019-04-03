@@ -20,6 +20,7 @@ public class Book extends Literature
     public Book(String title, String publisher, String author, int bookEdition)
     {
         super(title, publisher);
+        this.author = author;
         if (bookEdition < 1)
         {
             this.bookEdition = 9999;
@@ -37,5 +38,14 @@ public class Book extends Literature
     public int getBookEdition()
     {
         return this.bookEdition;
+    }
+    
+    /**
+     * Returns the author of the book
+     * @return author of the book
+     */
+    protected String getAuthor()
+    {
+        return this.author;
     }
 }
