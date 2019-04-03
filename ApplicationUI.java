@@ -79,6 +79,7 @@ public class ApplicationUI
 
                     case 6:
                     this.findLiteratureByTitle();
+                    break;
                     
                     case 7:
                     this.findLiteratureByPublisher();
@@ -336,9 +337,9 @@ public class ApplicationUI
     {
         System.out.println("Please enter the title of the literature: ");
         Scanner reader = new Scanner(System.in);
-        String title = reader.nextLine();   
+        String title = reader.nextLine();
 
-        ArrayList<Literature> foundLiterature = 
+        ArrayList<Literature> foundLiterature =
             this.literatureReg.findLiteratureByTitle(title);
 
         if (foundLiterature.isEmpty())
@@ -352,32 +353,24 @@ public class ApplicationUI
             System.out.println("Literature found:");
             for (Literature literature : foundLiterature)
             {
-                if(literature instanceof Newspaper)
-                {
-                    Newspaper newspaper = (Newspaper) literature;
-                    System.out.println("Title: " + newspaper.getTitle() +
-                        "\nPublisher: " + newspaper.getPublisher() +
-                        "\nLiteraturetype: " + newspaper.getLiteratureType() +
-                        "\nTimespublished: " + newspaper.getTimesPublished()
-                        + "\n");
-                }
+                printInformation(literature);
             }
 
         }
     }
-    
+
     private void findLiteratureByPublisher()
     {
-        System.out.println("Please enter the title of the literature: ");
+        System.out.println("Please enter the publisher of the literature: ");
         Scanner reader = new Scanner(System.in);
-        String title = reader.nextLine();   
+        String publisher = reader.nextLine();
 
-        ArrayList<Literature> foundLiterature = 
-            this.literatureReg.findLiteratureByTitle(title);
+        ArrayList<Literature> foundLiterature =
+            this.literatureReg.findLiteratureByPublisher(publisher);
 
         if (foundLiterature.isEmpty())
         {
-            System.out.println("Could not find any literature with this title.");
+            System.out.println("Could not find any literature with this publisher.");
             System.out.println();
         }
         else
@@ -386,56 +379,55 @@ public class ApplicationUI
             System.out.println("Literature found:");
             for (Literature literature : foundLiterature)
             {
-                if(literature instanceof Newspaper)
-                {
-                    Newspaper newspaper = (Newspaper) literature;
-                    printLiteratureInformation(newspaper);
-                    System.out.println("Literaturetype: " + newspaper.getLiteratureType() +
-                        "\nTimespublished: " + newspaper.getTimesPublished()
-                        + "\n");
-                }
-                
-                if(literature instanceof Magazine)
-                {
-                    Magazine magazine = (Magazine) literature;
-                    printLiteratureInformation(magazine);
-                    System.out.println("Literaturetype: " + magazine.getLiteratureType() +
-                        "\nGenre: " + magazine.getGenre()
-                        + "\n");
-                }
-                
-                if(literature instanceof Tabloid)
-                {
-                    Tabloid tabloid = (Tabloid) literature;
-                    printLiteratureInformation(tabloid);
-                    System.out.println("Literaturetype: " + tabloid.getLiteratureType() +
-                        "\nTimespublished: " + tabloid.getTimesPublished()
-                        + "\n");
-                }
-                
-                if(literature instanceof Book)
-                {
-                    Book book = (Book) literature;
-                    printLiteratureInformation(book);
-                    System.out.println("Author: " + book.getAuthor() +
-                        "\nBookediton: " + book.getBookEdition()
-                        + "\n");
-                }
-                
-                if(literature instanceof BookSeries)
-                {
-                    BookSeries bookserie = (BookSeries) literature;
-                    printLiteratureInformation(bookserie);
-                    System.out.println("Title of the serie: " + bookserie.getBookSeriesTitle() +
-                        "\nNumber of books: " + bookserie.getNumberOfBooks()
-                        + "\n");
-                }
+                printInformation(literature);
 
             }
 
         }
     }
-    
+
+    private void printInformation(Literature literature) {
+        if (literature instanceof Newspaper) {
+            Newspaper newspaper = (Newspaper) literature;
+            printLiteratureInformation(newspaper);
+            System.out.println("Literaturetype: " + newspaper.getLiteratureType() +
+                    "\nTimespublished: " + newspaper.getTimesPublished()
+                    + "\n");
+        }
+
+        if (literature instanceof Magazine) {
+            Magazine magazine = (Magazine) literature;
+            printLiteratureInformation(magazine);
+            System.out.println("Literaturetype: " + magazine.getLiteratureType() +
+                    "\nGenre: " + magazine.getGenre()
+                    + "\n");
+        }
+
+        if (literature instanceof Tabloid) {
+            Tabloid tabloid = (Tabloid) literature;
+            printLiteratureInformation(tabloid);
+            System.out.println("Literaturetype: " + tabloid.getLiteratureType() +
+                    "\nTimespublished: " + tabloid.getTimesPublished()
+                    + "\n");
+        }
+
+        if (literature instanceof Book) {
+            Book book = (Book) literature;
+            printLiteratureInformation(book);
+            System.out.println("Author: " + book.getAuthor() +
+                    "\nBookediton: " + book.getBookEdition()
+                    + "\n");
+        }
+
+        if (literature instanceof BookSeries) {
+            BookSeries bookserie = (BookSeries) literature;
+            printLiteratureInformation(bookserie);
+            System.out.println("Title of the serie: " + bookserie.getBookSeriesTitle() +
+                    "\nNumber of books: " + bookserie.getNumberOfBooks()
+                    + "\n");
+        }
+    }
+
     /**
      * Lists all the products/literature in the register
      * @return the list of all newspaper in the register 
@@ -456,50 +448,7 @@ public class ApplicationUI
             {   
                 Literature literature = literatureList.next();
 
-                if(literature instanceof Newspaper)
-                {
-                    Newspaper newspaper = (Newspaper) literature;
-                    printLiteratureInformation(newspaper);
-                    System.out.println("Literaturetype: " + newspaper.getLiteratureType() +
-                        "\nTimespublished: " + newspaper.getTimesPublished()
-                        + "\n");
-                }
-                
-                if(literature instanceof Magazine)
-                {
-                    Magazine magazine = (Magazine) literature;
-                    printLiteratureInformation(magazine);
-                    System.out.println("Literaturetype: " + magazine.getLiteratureType() +
-                        "\nGenre: " + magazine.getGenre()
-                        + "\n");
-                }
-                
-                if(literature instanceof Tabloid)
-                {
-                    Tabloid tabloid = (Tabloid) literature;
-                    printLiteratureInformation(tabloid);
-                    System.out.println("Literaturetype: " + tabloid.getLiteratureType() +
-                        "\nTimespublished: " + tabloid.getTimesPublished()
-                        + "\n");
-                }
-                
-                if(literature instanceof Book)
-                {
-                    Book book = (Book) literature;
-                    printLiteratureInformation(book);
-                    System.out.println("Author: " + book.getAuthor() +
-                        "\nBookediton: " + book.getBookEdition()
-                        + "\n");
-                }
-                
-                if(literature instanceof BookSeries)
-                {
-                    BookSeries bookserie = (BookSeries) literature;
-                    printLiteratureInformation(bookserie);
-                    System.out.println("Title of the serie: " + bookserie.getBookSeriesTitle() +
-                        "\nNumber of books: " + bookserie.getNumberOfBooks()
-                        + "\n");
-                }
+                printInformation(literature);
 
             }   
         }
