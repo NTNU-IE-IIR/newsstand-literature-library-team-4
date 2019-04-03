@@ -18,8 +18,6 @@ import java.util.Iterator;
  */
 public class LiteratureRegister
 {
-    // An ArrayList for storing newspaper.
-    //private ArrayList<Newspaper> newspaperList;
     
     //An arraylist for the Literature superclass,
     private ArrayList<Literature> literatureList;
@@ -29,19 +27,9 @@ public class LiteratureRegister
      */
     public LiteratureRegister()
     {
-        //this.newspaperList = new ArrayList<Newspaper>();
         this.literatureList = new ArrayList<Literature>();
     }
 
-    // /**
-     // * Method for adding newspaper in Literature register.
-     // * @param newspaper The title of the newspaper
-     // */
-    // public void addNewspaper(Newspaper newspaper)
-    // {
-        // this.newspaperList.add(newspaper);
-    // }
-    
     /**
      * Method for adding literature to the literature register
      * param literature is the literature to be added to the list
@@ -51,28 +39,6 @@ public class LiteratureRegister
         this.literatureList.add(literature);
     }
 
-    // /**
-     // * Method for finding newspapers in literature by name.
-     // * @param title The title of newspapers.
-     // * @return the title of the newspapers.
-     // */
-    // public ArrayList<Newspaper> findNewspaperByTitle(String title)
-    // {
-        // ArrayList<Newspaper> foundNewspapers = new ArrayList<Newspaper>();
-
-        // Iterator<Newspaper> it = this.newspaperList.iterator();
-        // while (it.hasNext())
-        // {
-            // Newspaper p = it.next();
-            // if (p.getTitle().equalsIgnoreCase(title))
-            // {
-                // foundNewspapers.add(p);
-            // }
-        // }
-
-        // return foundNewspapers;
-    // }
-    
         /**
      * Method for finding newspapers in literature by name.
      * @param title The title of newspapers.
@@ -95,29 +61,6 @@ public class LiteratureRegister
         return foundLiterature;
     }
 
-    // /**
-     // * Method for finding newspapers in literature by publisher.
-     // * @param publisher The publisher of newspapers.
-     // * @return the title of the newspapers.
-     // */
-    // public ArrayList<Newspaper> findNewspaperByPublisher(String publisher)
-    // {
-        // ArrayList<Newspaper> foundNewspapers = 
-                                          // new ArrayList<Newspaper>();       
-
-        // Iterator<Newspaper> it = this.newspaperList.iterator();
-        // while (it.hasNext())
-        // {
-            // Newspaper p = it.next();
-            // if (p.getPublisher().equalsIgnoreCase(publisher))
-            // {
-                // foundNewspapers.add(p);
-            // }
-        // }
-
-        // return foundNewspapers;
-    // }
-    
         /**
      * Method for finding newspapers in literature by publisher.
      * @param publisher The publisher of newspapers.
@@ -181,40 +124,6 @@ public class LiteratureRegister
         }
         return valid;
     }
-
-    // /**
-     // * Test method to check if the literature register works.
-     // */
-    // public void fillLiteratureRegisterWithDummies()
-    // {
-        // this.newspaperList.add(new Newspaper
-        // ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
-        // this.newspaperList.add(new Newspaper
-        // ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
-        // this.newspaperList.add(new Newspaper
-        // ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
-        // this.newspaperList.add(new Newspaper
-        // ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
-        // this.newspaperList.add(new Newspaper
-        // ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
-    // }
-    
-        // /**
-     // * Test method to check if the literature register works.
-     // */
-    // public void fillLiteratureRegisterWithDummies()
-    // {
-        // this.literatureList.add(new Newspaper
-        // ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
-        // this.literatureList.add(new Newspaper
-        // ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
-        // this.literatureList.add(new Newspaper
-        // ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
-        // this.literatureList.add(new Newspaper
-        // ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
-        // this.literatureList.add(new Newspaper
-        // ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
-    // }
 
     /**
      * Show a list of all the newspapers in the collection.
