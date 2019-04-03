@@ -1,5 +1,5 @@
 /**
- * Represent the tabloid.
+ * Represent the Tabloid.
  *
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
  * @version 2019.03.18.
