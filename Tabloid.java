@@ -25,59 +25,7 @@ public class Tabloid extends PeriodicalPublication
     {
         super(title, publisher, literatureType);
         this.timesPublished = checkValidStringInput(timesPublished);
-        
-        // if (title != null)
-        // {
-            // this.title = title;
-        // }
-        // else
-        // {
-            // this.title = "INVALID VALUE";
-        // }
-        // this.publisher = publisher;
-        // this.litteratureType = litteratureType;  
-        // this.timesPublished = timesPublished;
     }
-
-    // /**
-     // * Constructor for objects of class Tabloid.
-     // * This constructor is used for making dummies
-     // * to test add method in Literatureregister.
-     // */
-    // public Tabloid()
-    // {
-        // this.title = "Adressa";
-        // this.publisher = "Adresseavisa";
-        // this.litteratureType = "Newspaper";
-        // this.timesPublished = "52 times a year, Once a week";
-    // }
-
-    // /**
-     // * Returns the title of the tabloid.
-     // * @return the tile of the tabloid.
-     // */
-    // public String getTitle()
-    // {
-        // return this.title;
-    // }
-
-    // /**
-     // * Returns the publisher of the tabloid.
-     // * @return the publisher of the tabloid.
-     // */
-    // public String getPublisher()
-    // {
-        // return this.publisher;
-    // }
-
-    // /**
-     // * Returns the genre of the tabloid.
-     // * @return the genre of the tabloid.    
-     // */
-    // public String getliteratureType()
-    // {
-        // return this.literatureType;
-    // }
 
     /**
      * Returns the times this tabloid is published in a year.

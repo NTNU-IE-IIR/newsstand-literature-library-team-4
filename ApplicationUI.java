@@ -60,7 +60,7 @@ public class ApplicationUI
                     case 1:
                     this.addNewNewspaper();
                     break;
-                    
+
                     case 2:
                     this.addNewMagazine();
                     break;
@@ -68,11 +68,11 @@ public class ApplicationUI
                     case 3:
                     this.addNewTabloid();
                     break;
-                    
+
                     case 4:
                     this.addNewBook();
                     break;
-                    
+
                     case 5:
                     this.addNewBookSeries();
                     break;
@@ -80,11 +80,11 @@ public class ApplicationUI
                     case 6:
                     this.findLiteratureByTitle();
                     break;
-                    
+
                     case 7:
                     this.findLiteratureByPublisher();
                     break;
-                    
+
                     case 8:
                     this.listAllLiterature();
                     break;
@@ -159,7 +159,7 @@ public class ApplicationUI
         System.out.println("init() was called"); 
     }
 
-        /**
+    /**
      * Add a new product/literature to the register.
      * In this method you have to add code to ask the
      * user for the necessary information you need to 
@@ -192,8 +192,8 @@ public class ApplicationUI
         this.literatureReg.addLiterature(literature);
 
     }
-    
-        /**
+
+    /**
      * Add a new product/literature to the register.
      * In this method you have to add code to ask the
      * user for the necessary information you need to 
@@ -224,8 +224,8 @@ public class ApplicationUI
                 literatureType, genre);
         this.literatureReg.addLiterature(literature);
     }
-    
-        /**
+
+    /**
      * Add a new product/literature to the register.
      * In this method you have to add code to ask the
      * user for the necessary information you need to 
@@ -257,7 +257,7 @@ public class ApplicationUI
                 literatureType, timesPublished);
         this.literatureReg.addLiterature(literature);
     }
-    
+
     /**
      * Add a new product/literature to the register.
      * In this method you have to add code to ask the
@@ -290,7 +290,6 @@ public class ApplicationUI
         this.literatureReg.addLiterature(literature);
 
     }
-    
 
     /**
      * Add a new product/literature to the register.
@@ -320,10 +319,10 @@ public class ApplicationUI
 
         // Legg inn avisa i registeret
         Literature literature = new BookSeries(title, publisher, 
-                  bookSeriesTitle, numberOfBooks);
+                bookSeriesTitle, numberOfBooks);
         this.literatureReg.addLiterature(literature);
     }
-    
+
     /**
      * Find and display a product based om name (title).
      * As with the addNewProduct()-method, you have to
@@ -359,6 +358,11 @@ public class ApplicationUI
         }
     }
 
+    /**
+     * Finds the literature by publisher.
+     * The user-entered text into the interface is the searchword
+     * This text is not case sensitive
+     */
     private void findLiteratureByPublisher()
     {
         System.out.println("Please enter the publisher of the literature: ");
@@ -386,45 +390,49 @@ public class ApplicationUI
         }
     }
 
+    /**
+     * Prints the relevant information about the literature
+     * @param literature is the literature which should have the information printed.
+     */
     private void printInformation(Literature literature) {
         if (literature instanceof Newspaper) {
             Newspaper newspaper = (Newspaper) literature;
             printLiteratureInformation(newspaper);
             System.out.println("Literaturetype: " + newspaper.getLiteratureType() +
-                    "\nTimespublished: " + newspaper.getTimesPublished()
-                    + "\n");
+                "\nTimespublished: " + newspaper.getTimesPublished()
+                + "\n");
         }
 
         if (literature instanceof Magazine) {
             Magazine magazine = (Magazine) literature;
             printLiteratureInformation(magazine);
             System.out.println("Literaturetype: " + magazine.getLiteratureType() +
-                    "\nGenre: " + magazine.getGenre()
-                    + "\n");
+                "\nGenre: " + magazine.getGenre()
+                + "\n");
         }
 
         if (literature instanceof Tabloid) {
             Tabloid tabloid = (Tabloid) literature;
             printLiteratureInformation(tabloid);
             System.out.println("Literaturetype: " + tabloid.getLiteratureType() +
-                    "\nTimespublished: " + tabloid.getTimesPublished()
-                    + "\n");
+                "\nTimespublished: " + tabloid.getTimesPublished()
+                + "\n");
         }
 
         if (literature instanceof Book) {
             Book book = (Book) literature;
             printLiteratureInformation(book);
             System.out.println("Author: " + book.getAuthor() +
-                    "\nBookediton: " + book.getBookEdition()
-                    + "\n");
+                "\nBookediton: " + book.getBookEdition()
+                + "\n");
         }
 
         if (literature instanceof BookSeries) {
             BookSeries bookserie = (BookSeries) literature;
             printLiteratureInformation(bookserie);
             System.out.println("Title of the serie: " + bookserie.getBookSeriesTitle() +
-                    "\nNumber of books: " + bookserie.getNumberOfBooks()
-                    + "\n");
+                "\nNumber of books: " + bookserie.getNumberOfBooks()
+                + "\n");
         }
     }
 
@@ -454,10 +462,15 @@ public class ApplicationUI
         }
     }
 
+    /**
+     * Prints the general information about the literature.
+     * This information is common for all literature in the register.
+     * @param literature is the literature to be printed information about.
+     */
     private void printLiteratureInformation(Literature literature)
     {
         System.out.println("Title: " + literature.getTitle() +
-                           "\nPublisher: " + literature.getPublisher());
+            "\nPublisher: " + literature.getPublisher());
     }
 
     /**
@@ -476,8 +489,8 @@ public class ApplicationUI
         this.literatureReg.addLiterature(new Magazine
             ("Teknisk Ukeblad", "TU Media", "Magazine", "Technology"));
         this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber", "Bloomsburry",
-                                                         "Harry Potter", 8));
+                "Harry Potter", 8));
         this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
-                                                  3));
+                3));
     }
 }
