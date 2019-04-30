@@ -71,7 +71,7 @@ public class LiteratureRegisterTest
     // {
         // LiteratureRegister literatu1 = new LiteratureRegister();
         // Newspaper newspape1 = new Newspaper(null, "test", "test", "test");
-        // literatu1.addNewspaper(newspape1);
+        // literatu1.addNewspaper(null);
         // assertEquals("INVALID VALUE", newspape1.getTitle());
     // }
 }
