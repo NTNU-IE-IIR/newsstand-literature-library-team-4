@@ -18,7 +18,7 @@ import java.util.Iterator;
  */
 public class LiteratureRegister
 {
-    
+
     //An arraylist for the Literature superclass,
     private ArrayList<Literature> literatureList;
 
@@ -39,10 +39,10 @@ public class LiteratureRegister
         this.literatureList.add(literature);
     }
 
-        /**
-     * Method for finding newspapers in literature by name.
-     * @param title The title of newspapers.
-     * @return the title of the newspapers.
+    /**
+     * Method for finding literature by name.
+     * @param title The title of literature.
+     * @return the title of the literature.
      */
     public ArrayList<Literature> findLiteratureByTitle(String title)
     {
@@ -61,15 +61,15 @@ public class LiteratureRegister
         return foundLiterature;
     }
 
-        /**
-     * Method for finding newspapers in literature by publisher.
-     * @param publisher The publisher of newspapers.
-     * @return the title of the newspapers.
+    /**
+     * Method for finding literature by publisher.
+     * @param publisher The publisher of literature.
+     * @return the title of the literature.
      */
     public ArrayList<Literature> findLiteratureByPublisher(String publisher)
     {
         ArrayList<Literature> foundLiterature = 
-                                          new ArrayList<Literature>();       
+            new ArrayList<Literature>();       
 
         Iterator<Literature> it = this.literatureList.iterator();
         while (it.hasNext())
@@ -85,8 +85,8 @@ public class LiteratureRegister
     }
 
     /**
-     * Remove a newspaper from the collection.
-     * @param index The index of the newspaper to be removed.
+     * Remove a literature from the collection, if the index used is valid.
+     * @param index The index of the literature to be removed.
      */
     public void removeLiterature(int index)
     {
@@ -126,9 +126,9 @@ public class LiteratureRegister
     }
 
     /**
-     * Show a list of all the newspapers in the collection.
+     * Show a list of all the literature in the collection.
      * 
-     @return List of all newspapers.
+    @return List of all literature.
      */
     public ArrayList<Literature> listAllLiterature()
     {
@@ -141,19 +141,19 @@ public class LiteratureRegister
         }
         return foundLiterature;
     }
-    
+
     /**
      * Getting the iterator.
-     @return Newspaperlist Iterator.
+    @return literature list Iterator.
      */
     public Iterator<Literature> getIterator()
     {
         return this.literatureList.iterator();
     }
-    
+
     /**
      * Checks if the register contains any objects.
-     @return true if the register cointains objects, false otherwise.
+    @return true if the register cointains objects, false otherwise.
      */
     public boolean isLiteratureRegisterEmpty()
     {
@@ -166,5 +166,5 @@ public class LiteratureRegister
             return false;
         }
     }
-    
+
 }
