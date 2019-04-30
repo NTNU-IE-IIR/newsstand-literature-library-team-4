@@ -79,9 +79,9 @@ public class NewspaperTest
     @Test
     public void testInit()
     {
-        Newspaper newspaper1 = new Newspaper("test name", "test", 
-                                             "test", "test");
+        Newspaper newspaper1 = new Newspaper("test name", "test publisher", 
+                                             "test", "te    st");
         assertEquals("test name", newspaper1.getTitle());
-        assertEquals(1000, newspaper1.getPublisher());
+        assertEquals("test publisher", newspaper1.getPublisher());
     }
 }
