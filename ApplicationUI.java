@@ -27,7 +27,7 @@ public class ApplicationUI
             "6. Find literature by title",
             "7. Find literature by publisher",
             "8. List all literature",
-            "9. Add newspaperdummies to list",
+            "9. Add literature dummies to list",
         };
 
     private LiteratureRegister literatureReg;
