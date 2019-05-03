@@ -21,7 +21,7 @@ public class Main
         }
         catch (ValueOutOfRangeExcpection e)
         {
-            System.out.println("Something went wrong. Please contact ostumer service!");
+            System.out.println("Something went wrong. Please contact costumer service!");
         }
     }
 }

@@ -1,4 +1,5 @@
 import java.util.InputMismatchException;
+import java.lang.IllegalArgumentException;
 import java.util.Scanner;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -86,13 +87,12 @@ public class ApplicationUI
                     case 8:
                     this.listAllLiterature();
                     break;
+
                     
-                    /**
                     case 9:
                     this.removeLiterature();
                     break;
-                    */
-
+                    
 
                     case 10:
                     this.fillLiteratureRegisterWithDummies();
@@ -111,6 +111,10 @@ public class ApplicationUI
             {
                 System.out.println("\nERROR: Please provide a number between" +
                     " 1 and " + maxMenuItemNumber + "..\n");
+            }
+            catch (IllegalArgumentException e)
+            {
+                System.out.println("\nERROR: Illegal input used!");
             }
         }        
     }
@@ -180,26 +184,30 @@ public class ApplicationUI
             String literatureType = reader.nextLine();
 
             System.out.println("Please enter the number of publishes " 
-              + "of the newspaper: ");
+                + "of the newspaper: ");
             String timesPublished = reader.nextLine();
 
             //Adds the newspaper to the register.
             Literature literature = new Newspaper(title, publisher, 
-                                literatureType, timesPublished);
-                                this.literatureReg.addLiterature(literature);
-        
+                    literatureType, timesPublished);
+            this.literatureReg.addLiterature(literature);
+
             System.out.println("The newspaper " + title + " has been added to the register."
-                               + "\n");
+                + "\n");
         }
-            catch (ValueOutOfRangeExcpection e)
+        catch (IllegalArgumentException e)
+        {
+            System.out.println("\nERROR: Wrong inputs provided for Title ....");
+        }
+
+        catch (ValueOutOfRangeExcpection e)
         {
             System.out.println("Title, publisher, literaturetype or "
-                            + "number of publishes per year was out of range");
+                + "number of publishes per year was out of range");
             System.out.println("Add newspaper was canceled." + "\n");
 
         }
-}
-    
+    }
 
     /**
      * Add a new product/literature to the register.
@@ -329,20 +337,19 @@ public class ApplicationUI
 
             //Adds the bookseries to the register.
             Literature literature = new BookSeries(title, publisher, 
-                bookSeriesTitle, numberOfBooks);
-                this.literatureReg.addLiterature(literature);
-        
-                System.out.println("The bookseries " + title + " has been added to the register."
-                           + "\n");
+                    bookSeriesTitle, numberOfBooks);
+            this.literatureReg.addLiterature(literature);
+
+            System.out.println("The bookseries " + title + " has been added to the register."
+                + "\n");
         }
         catch (ValueOutOfRangeExcpection e)
         {
             System.out.println("Title, publisher, title of the bookseries or "
-                                 + "number of books was out of range");
+                + "number of books was out of range");
             System.out.println("Add newspaper was canceled." + "\n");
         }
     }
-        
 
     /**
      * Find and display a product based om name (title).
@@ -473,7 +480,7 @@ public class ApplicationUI
         {
             System.out.println();
             System.out.println("List of all literature:"
-                               + "\n");
+                + "\n");
             while (literatureList.hasNext())
             {   
                 Literature literature = literatureList.next();
@@ -494,14 +501,50 @@ public class ApplicationUI
         System.out.println("Title: " + literature.getTitle() +
             "\nPublisher: " + literature.getPublisher());
     }
-    
-    /**
-     * 
-     * void removeLiterature()
+
+    void removeLiterature()
     {
-        literatureReg.
+        System.out.println("Please enter the title of the literature you wish to remove: ");
+        Scanner reader = new Scanner(System.in);
+        String title = reader.nextLine();
+
+        ArrayList<Literature> foundLiterature =
+            this.literatureReg.findLiteratureByTitle(title);
+
+        if (foundLiterature.isEmpty())
+        {
+            System.out.println("Could not find any literature with this title.");
+            System.out.println();
+        }
+        else
+        {
+            System.out.println();
+            System.out.println("Literature found:");
+            for (Literature literature : foundLiterature)
+            {
+                printInformation(literature);
+            }
+            
+            System.out.println("Are you sure you want to delete the found literature?");
+            System.out.println("Please answer <yes> to confirm, or any other input to abort!");
+            Scanner reader2 = new Scanner(System.in);
+            String answer = reader2.nextLine();
+           
+            if(answer.equalsIgnoreCase("yes"))
+            {
+                for (Literature literature : foundLiterature)
+                {
+                    this.literatureReg.removeLiterature(literature);
+                }
+                System.out.println("Literature has been deleted!");
+            }
+            else
+            {
+                System.out.println("Deletion of literature aborted!");
+            }
+
+        }
     }
-    */
 
     /**
      * Fills the literatureregister with dummies for testing.
@@ -511,18 +554,18 @@ public class ApplicationUI
         try
         {
             this.literatureReg.addLiterature(new Newspaper
-               ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
+                ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
             this.literatureReg.addLiterature(new Newspaper
                 ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
             this.literatureReg.addLiterature(new Newspaper
                 ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
             this.literatureReg.addLiterature(new Newspaper
-               ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
+                ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
             this.literatureReg.addLiterature(new Magazine
                 ("Teknisk Ukeblad", "TU Media", "Magazine", "Technology"));
             this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber", "Bloomsburry",
-                   "Harry Potter", 8));
-                this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
+                    "Harry Potter", 8));
+            this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
                     3));
         }
         catch (ValueOutOfRangeExcpection e)

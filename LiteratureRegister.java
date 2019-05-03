@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.io.*;
 
 /**
  * Represents a register, holding a collection of
@@ -57,7 +58,7 @@ public class LiteratureRegister
         while (it.hasNext())
         {
             Literature l = it.next();
-            if (l.getTitle().equalsIgnoreCase(title))
+            if (l.getTitle().toLowerCase().contains(title))
             {
                 foundLiterature.add(l);
             }
@@ -80,7 +81,7 @@ public class LiteratureRegister
         while (it.hasNext())
         {
             Literature l = it.next();
-            if (l.getPublisher().equalsIgnoreCase(publisher))
+            if (l.getPublisher().toLowerCase().contains(publisher))
             {
                 foundLiterature.add(l);
             }
@@ -99,6 +100,11 @@ public class LiteratureRegister
         {
             literatureList.remove(index);
         }
+    }
+    
+    public void removeLiterature(Literature literature)
+    {
+        this.literatureList.remove(literature);
     }
 
     /**
