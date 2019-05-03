@@ -47,8 +47,14 @@ public class NewspaperTest
     @Test 
     public void testTitle() 
     {
-        Newspaper newspaper1 = new Newspaper("test", "test", "test", "test");
-        assertEquals("test", newspaper1.getTitle());
+        try
+        {
+            Newspaper newspaper1 = new Newspaper("test", "test", "test", "test");
+            assertEquals("test", newspaper1.getTitle());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }
     
     
@@ -59,8 +65,14 @@ public class NewspaperTest
     @Test 
     public void testTitleNeg() 
     {
-        Newspaper newspaper1 = new Newspaper(null, "test", "test", "test");
-        assertEquals("INVALID VALUE", newspaper1.getTitle());
+        try
+        {
+            Newspaper newspaper1 = new Newspaper(null, "test", "test", "test");
+            assertEquals("INVALID VALUE", newspaper1.getTitle());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }    
     
     /**
@@ -69,8 +81,14 @@ public class NewspaperTest
     @Test
     public void testPublisher()
     {
-        Newspaper newspaper1 = new Newspaper("test", "test", "test", "test");
-        assertEquals("test", newspaper1.getPublisher());
+        try
+        {
+            Newspaper newspaper1 = new Newspaper("test", "test", "test", "test");
+            assertEquals("test", newspaper1.getPublisher());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }
     
     /**
@@ -79,9 +97,15 @@ public class NewspaperTest
     @Test
     public void testInit()
     {
-        Newspaper newspaper1 = new Newspaper("test name", "test publisher", 
-                                             "test", "te    st");
-        assertEquals("test name", newspaper1.getTitle());
-        assertEquals("test publisher", newspaper1.getPublisher());
+        try
+        {
+            Newspaper newspaper1 = new Newspaper("test name", "test publisher", 
+                                                 "test", "te    st");
+            assertEquals("test name", newspaper1.getTitle());
+            assertEquals("test publisher", newspaper1.getPublisher());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }
 }

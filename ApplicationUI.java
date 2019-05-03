@@ -9,15 +9,13 @@ import java.util.ArrayList;
  * and receiving input from the user.
  * 
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
- * @version 2019-03-18.
+ * @version 2019-05-01.
  */
 
 public class ApplicationUI
 {
 
-    // The menu tha will be displayed. Please edit/alter the menu
-    // to fit your application (i.e. replace "prodct" with "litterature"
-    // etc.
+    // The menu that will be displayed.
     private String[] menuItems = {
             "1. Add new newspaper",
             "2. Add new magazine",
@@ -27,7 +25,8 @@ public class ApplicationUI
             "6. Find literature by title",
             "7. Find literature by publisher",
             "8. List all literature",
-            "9. Add literature dummies to list",
+            "9. Remove literature from register",
+            "10. Add literaturedummies to list",
         };
 
     private LiteratureRegister literatureReg;
@@ -35,7 +34,7 @@ public class ApplicationUI
     /**
      * Creates an instance of the ApplicationUI User interface. 
      */
-    public ApplicationUI() 
+    public ApplicationUI() throws ValueOutOfRangeExcpection
     {
         this.literatureReg = new LiteratureRegister();
     }
@@ -46,9 +45,8 @@ public class ApplicationUI
      */
     public void startApplication() 
     {
-        this.init();
-
         boolean quit = false;
+        int maxMenuItemNumber = menuItems.length + 1;
 
         while (!quit) 
         {
@@ -88,14 +86,21 @@ public class ApplicationUI
                     case 8:
                     this.listAllLiterature();
                     break;
-
+                    
+                    /**
                     case 9:
+                    this.removeLiterature();
+                    break;
+                    */
+
+
+                    case 10:
                     this.fillLiteratureRegisterWithDummies();
                     break;
 
-                    case 10:
+                    case 11:
                     System.out.print("\nThank you for using Application");
-                    System.out.print("v2019.03.06. Bye!\n");
+                    System.out.print(" v2019.03.06. Bye!\n");
                     quit = true;
                     break;
 
@@ -105,10 +110,9 @@ public class ApplicationUI
             catch (InputMismatchException ime) 
             {
                 System.out.println("\nERROR: Please provide a number between" +
-                    "\1 and " + this.menuItems.length + "..\n");
+                    " 1 and " + maxMenuItemNumber + "..\n");
             }
         }        
-
     }
 
     /**
@@ -124,7 +128,7 @@ public class ApplicationUI
      */
     private int showMenu() throws InputMismatchException 
     {
-        System.out.println("\n**** Application v2019.03.06 ****\n");
+        System.out.println("\n**** Application v2019.05.01 ****\n");
         // Display the menu
         for ( String menuItem : menuItems )
         {
@@ -147,20 +151,11 @@ public class ApplicationUI
 
     // ------ The methods below this line are "helper"-methods, 
     // ------ used from the menu ----
-    // ------ All these methods are made privat, 
+    // ------ All these methods are made private, 
     // ------ since they are only used by the menu ---
 
     /**
-     * Initializes the application.
-     * Typically you would create the LiteratureRegistrer-instance here
-     */
-    private void init()
-    {
-        System.out.println("init() was called"); 
-    }
-
-    /**
-     * Add a new product/literature to the register.
+     * Add a new newspaper to the register.
      * In this method you have to add code to ask the
      * user for the necessary information you need to 
      * create an instance of the product, which you
@@ -171,27 +166,40 @@ public class ApplicationUI
      */
     void addNewNewspaper()
     {
-        // Brukeren har nå valgt å legge til en avis
-        System.out.println("Please enter the title of the newspaper: ");
-        Scanner reader = new Scanner(System.in);
-        String title = reader.nextLine();
+        try
+        {
+            //The user has chosen to add a newspaper.
+            System.out.println("Please enter the title of the newspaper: ");
+            Scanner reader = new Scanner(System.in);
+            String title = reader.nextLine();
 
-        System.out.println("Please enter the publisher of the newspaper: ");
-        String publisher = reader.nextLine();
+            System.out.println("Please enter the publisher of the newspaper: ");
+            String publisher = reader.nextLine();
 
-        System.out.println("Please enter the literaturetype: ");
-        String literatureType = reader.nextLine();
+            System.out.println("Please enter the literaturetype: ");
+            String literatureType = reader.nextLine();
 
-        System.out.println("Please enter the number of publishes " 
-            + "of the newspaper: ");
-        String timesPublished = reader.nextLine();
+            System.out.println("Please enter the number of publishes " 
+              + "of the newspaper: ");
+            String timesPublished = reader.nextLine();
 
-        // Legg inn avisa i registeret
-        Literature literature = new Newspaper(title, publisher, 
-                literatureType, timesPublished);
-        this.literatureReg.addLiterature(literature);
+            //Adds the newspaper to the register.
+            Literature literature = new Newspaper(title, publisher, 
+                                literatureType, timesPublished);
+                                this.literatureReg.addLiterature(literature);
+        
+            System.out.println("The newspaper " + title + " has been added to the register."
+                               + "\n");
+        }
+            catch (ValueOutOfRangeExcpection e)
+        {
+            System.out.println("Title, publisher, literaturetype or "
+                            + "number of publishes per year was out of range");
+            System.out.println("Add newspaper was canceled." + "\n");
 
-    }
+        }
+}
+    
 
     /**
      * Add a new product/literature to the register.
@@ -205,7 +213,7 @@ public class ApplicationUI
      */
     void addNewMagazine()
     {
-        // Brukeren har nå valgt å legge til en avis
+        //The user has chosen to add a magazine.
         System.out.println("Please enter the title of the magazine: ");
         Scanner reader = new Scanner(System.in);
         String title = reader.nextLine();
@@ -219,7 +227,7 @@ public class ApplicationUI
         System.out.println("Please enter the genre of the magazine ");
         String genre = reader.nextLine();
 
-        // Legg inn avisa i registeret
+        //Adds the magazine to the register.
         Literature literature = new Magazine(title, publisher, 
                 literatureType, genre);
         this.literatureReg.addLiterature(literature);
@@ -237,7 +245,7 @@ public class ApplicationUI
      */
     void addNewTabloid()
     {
-        // Brukeren har nå valgt å legge til en avis
+        //The user has chosen to add a tabloid.
         System.out.println("Please enter the title of the tabloid: ");
         Scanner reader = new Scanner(System.in);
         String title = reader.nextLine();
@@ -252,7 +260,7 @@ public class ApplicationUI
             + "of the tabloid: ");
         String timesPublished = reader.nextLine();
 
-        // Legg inn avisa i registeret
+        //Adds the tabloid to the register.
         Literature literature = new Magazine(title, publisher, 
                 literatureType, timesPublished);
         this.literatureReg.addLiterature(literature);
@@ -270,7 +278,7 @@ public class ApplicationUI
      */
     void addNewBook()
     {
-        // Brukeren har nå valgt å legge til en avis
+        //The user has chosen to add a book.
         System.out.println("Please enter the title of the book: ");
         Scanner reader = new Scanner(System.in);
         String title = reader.nextLine();
@@ -284,7 +292,7 @@ public class ApplicationUI
         System.out.println("Please enter the bookedition: ");
         int bookEdition = reader.nextInt();
 
-        // Legg inn avisa i registeret
+        //Adds the book to the register.
         Literature literature = new Book(title, publisher, 
                 author, bookEdition);
         this.literatureReg.addLiterature(literature);
@@ -303,25 +311,38 @@ public class ApplicationUI
      */
     void addNewBookSeries()
     {
-        // Brukeren har nå valgt å legge til en avis
-        System.out.println("Please enter the title of the bookseries: ");
-        Scanner reader = new Scanner(System.in);
-        String title = reader.nextLine();
+        try
+        {
+            //The user has chosen to add a bookseries.
+            System.out.println("Please enter the title of the bookseries: ");
+            Scanner reader = new Scanner(System.in);
+            String title = reader.nextLine();
 
-        System.out.println("Please enter the publisher of the bookseries: ");
-        String publisher = reader.nextLine();
+            System.out.println("Please enter the publisher of the bookseries: ");
+            String publisher = reader.nextLine();
 
-        System.out.println("Please enter the title of the book serie: ");
-        String bookSeriesTitle = reader.nextLine();
+            System.out.println("Please enter the title of the book serie: ");
+            String bookSeriesTitle = reader.nextLine();
 
-        System.out.println("Please enter the number of books in the serie");
-        int numberOfBooks = reader.nextInt();
+            System.out.println("Please enter the number of books in the serie");
+            int numberOfBooks = reader.nextInt();
 
-        // Legg inn avisa i registeret
-        Literature literature = new BookSeries(title, publisher, 
+            //Adds the bookseries to the register.
+            Literature literature = new BookSeries(title, publisher, 
                 bookSeriesTitle, numberOfBooks);
-        this.literatureReg.addLiterature(literature);
+                this.literatureReg.addLiterature(literature);
+        
+                System.out.println("The bookseries " + title + " has been added to the register."
+                           + "\n");
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+            System.out.println("Title, publisher, title of the bookseries or "
+                                 + "number of books was out of range");
+            System.out.println("Add newspaper was canceled." + "\n");
+        }
     }
+        
 
     /**
      * Find and display a product based om name (title).
@@ -451,7 +472,8 @@ public class ApplicationUI
         else
         {
             System.out.println();
-            System.out.println("List of all literature:");
+            System.out.println("List of all literature:"
+                               + "\n");
             while (literatureList.hasNext())
             {   
                 Literature literature = literatureList.next();
@@ -472,25 +494,40 @@ public class ApplicationUI
         System.out.println("Title: " + literature.getTitle() +
             "\nPublisher: " + literature.getPublisher());
     }
+    
+    /**
+     * 
+     * void removeLiterature()
+    {
+        literatureReg.
+    }
+    */
 
     /**
      * Fills the literatureregister with dummies for testing.
      */
     void fillLiteratureRegisterWithDummies()
     {
-        this.literatureReg.addLiterature(new Newspaper
-            ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
-        this.literatureReg.addLiterature(new Newspaper
-            ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
-        this.literatureReg.addLiterature(new Newspaper
-            ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
-        this.literatureReg.addLiterature(new Newspaper
-            ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
-        this.literatureReg.addLiterature(new Magazine
-            ("Teknisk Ukeblad", "TU Media", "Magazine", "Technology"));
-        this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber", "Bloomsburry",
-                "Harry Potter", 8));
-        this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
-                3));
+        try
+        {
+            this.literatureReg.addLiterature(new Newspaper
+               ("DB", "Dagbladet", "News", "52 times a year, Once a week"));
+            this.literatureReg.addLiterature(new Newspaper
+                ("VG", "Verdens Gang", "News", "52 times a year, Once a week"));
+            this.literatureReg.addLiterature(new Newspaper
+                ("ITavisen", "Itavisen", "News", "52 times a year, Once a week"));
+            this.literatureReg.addLiterature(new Newspaper
+               ("SMP", "Sunnmørsposten", "News", "104 times a year, Twice a week"));
+            this.literatureReg.addLiterature(new Magazine
+                ("Teknisk Ukeblad", "TU Media", "Magazine", "Technology"));
+            this.literatureReg.addLiterature(new BookSeries ("Mystery Chamber", "Bloomsburry",
+                   "Harry Potter", 8));
+                this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
+                    3));
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+            //Just leave it..... Ikke skriv dette!! Aldri, dette er et untak pga dummies
+        }
     }
 }

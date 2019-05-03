@@ -2,8 +2,8 @@
 /**
  * Holds information about the Book
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
+ * @version 2019-05-01.
  */
 public class Book extends Literature
 {
@@ -17,13 +17,13 @@ public class Book extends Literature
      * @param author is the author of the book.
      * @param bookEdition is the number of which edition the book is.
      */
-    public Book(String title, String publisher, String author, int bookEdition)
+    protected Book(String title, String publisher, String author, int bookEdition)
     {
         super(title, publisher);
         this.author = author;
         if (bookEdition < 1)
         {
-            this.bookEdition = 9999;
+            this.bookEdition = 1;
         }
         else
         {
@@ -35,7 +35,7 @@ public class Book extends Literature
      * Returns the number of which edition the book is.
      * @return holds the variable of which edition the book is.
      */
-    public int getBookEdition()
+    protected int getBookEdition()
     {
         return this.bookEdition;
     }

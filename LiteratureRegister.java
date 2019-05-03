@@ -3,18 +3,23 @@ import java.util.Iterator;
 
 /**
  * Represents a register, holding a collection of
- * different books, newspapers and magazines.
+ * different books, newspapers, magazines and tabloids.
  * 
  * For this register you can:
- * Add books, newspaper and magazines.
- * Remove books, newspaper and magazines.
- * Find books, newspaper and magazines in the shop by author.
- * Find books, newspaper and magazines in the shop by title.
- * Find books, newspaper and magazines in the shop by publisher.
+ * Add books, bookseries, newspaper, magazines
+ * and tabloids.
+ * Remove books, bookseries, newspaper, magazines
+ * and tabloids.
+ * Find books, bookseries, newspaper, magazines
+ * and tabloids in the shop by author.
+ * Find books, bookseries, newspaper, magazines
+ * and tabloids in the shop by title.
+ * Find books, bookseries, newspaper, magazines
+ * and tabloids in the shop by publisher.
  * List the complete inventory.
  * 
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
- * @version 2019-03-18.
+ * @version 2019-05-01.
  */
 public class LiteratureRegister
 {
@@ -102,7 +107,7 @@ public class LiteratureRegister
      * @param index The index to be checked.
      * @return true if the index is valid, false otherwise.
      */
-    private boolean indexValid(int index)
+    protected boolean indexValid(int index)
     {
         // The return value.
         // Set according to whether the index is valid or not.
@@ -144,7 +149,7 @@ public class LiteratureRegister
 
     /**
      * Getting the iterator.
-    @return literature list Iterator.
+     @return literature list Iterator.
      */
     public Iterator<Literature> getIterator()
     {

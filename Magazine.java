@@ -2,8 +2,8 @@
 /**
  * Holds information about the Magazine type.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
+ * @version 2019-05-01.
  */
 public class Magazine extends PeriodicalPublication
 {
@@ -13,11 +13,10 @@ public class Magazine extends PeriodicalPublication
      * Constructor for objects of class Magazine
      * @param title is the title of the magazine
      * @param publisher is the publisher of the magazine
-     * @param litteratureType is the type of litterature 
-     * this is (Magazine/Newspaper).
-     * @param genre is which genre (sports,fashion,gossip) the magazine is.
+     * @param literatureType is the type of literature 
+     * @param genre is which genre the magazine is.
      */
-    public Magazine(String title, String publisher, 
+    protected Magazine(String title, String publisher, 
                     String literatureType, String genre)
     {
         super(title, publisher, literatureType);
@@ -29,7 +28,7 @@ public class Magazine extends PeriodicalPublication
      * Gets information about which genre the magazine is.
      * @return holds the variable of which genre the magazine is.
      */
-    public String getGenre()
+    protected String getGenre()
     {
         return this.genre;
     }

@@ -47,8 +47,14 @@ public class BookSeriesTest
     @Test 
     public void testGetTitle() 
     {
-        BookSeries bookSeri1 = new BookSeries("test", "test", "test", 1);
-        assertEquals("test", bookSeri1.getTitle());
+        try
+        {
+            BookSeries bookSeri1 = new BookSeries("test", "test", "test", 1);
+            assertEquals("test", bookSeri1.getTitle());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }
     
     /**
@@ -58,8 +64,14 @@ public class BookSeriesTest
     @Test 
     public void testTitleNeg() 
     {
-        BookSeries bookSeri1 = new BookSeries(null, "test", "test", 1);
-        assertEquals("INVALID VALUE", bookSeri1.getTitle());
+        try
+        {
+            BookSeries bookSeri1 = new BookSeries(null, "test", "test", 1);
+            assertEquals("INVALID VALUE", bookSeri1.getTitle());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }    
     
     /**
@@ -68,8 +80,14 @@ public class BookSeriesTest
     @Test
     public void testPublisher()
     {
-        BookSeries bookSeri1 = new BookSeries("test", "test", "test", 1);
-        assertEquals("test", bookSeri1.getPublisher());
+        try
+        {
+            BookSeries bookSeri1 = new BookSeries("test", "test", "test", 1);
+            assertEquals("test", bookSeri1.getPublisher());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }
     
     /**
@@ -78,10 +96,16 @@ public class BookSeriesTest
     @Test
     public void testInit()
     {
-        BookSeries bookSeri1 = new BookSeries("test name", "1000",
-                                              "test", 1);
-        assertEquals("test name", bookSeri1.getTitle());
-        assertEquals("1000", bookSeri1.getPublisher());
+        try
+        {
+            BookSeries bookSeri1 = new BookSeries("test name", "1000",
+                                                  "test", 1);
+            assertEquals("test name", bookSeri1.getTitle());
+            assertEquals("1000", bookSeri1.getPublisher());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }
     
 }

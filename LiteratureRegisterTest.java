@@ -46,9 +46,15 @@ public class LiteratureRegisterTest
      @Test 
     public void testAddNewspaper() 
     {
-        LiteratureRegister literatu1 = new LiteratureRegister();
-        Literature newspape1 = new Newspaper("test", "test", "test", "test");
-        literatu1.addLiterature(newspape1);
+        try
+        {
+            LiteratureRegister literatu1 = new LiteratureRegister();
+            Literature newspape1 = new Newspaper("test", "test", "test", "test");
+            literatu1.addLiterature(newspape1);
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }
     
     /**
@@ -57,10 +63,16 @@ public class LiteratureRegisterTest
     @Test
     public void testFindNewspaperByTitle()
     {
-        LiteratureRegister literatu1 = new LiteratureRegister();
-        Newspaper newspape1 = new Newspaper("test name", "test", "test", "test");
-        literatu1.addLiterature(newspape1);
-        assertSame("test name", newspape1.getTitle());
+        try
+        {
+            LiteratureRegister literatu1 = new LiteratureRegister();
+            Newspaper newspape1 = new Newspaper("test name", "test", "test", "test");
+            literatu1.addLiterature(newspape1);
+            assertSame("test name", newspape1.getTitle());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }
     
     /**
@@ -69,10 +81,16 @@ public class LiteratureRegisterTest
     @Test
     public void testFindNewspaperByTitleNeg()
     {
-        LiteratureRegister literatu1 = new LiteratureRegister();
-        Newspaper newspape1 = new Newspaper(null, "test", "test", "test");
-        literatu1.addLiterature(null);
-        assertEquals("INVALID VALUE", newspape1.getTitle());
+        try
+        {
+            LiteratureRegister literatu1 = new LiteratureRegister();
+            Newspaper newspape1 = new Newspaper(null, "test", "test", "test");
+            literatu1.addLiterature(null);
+            assertEquals("INVALID VALUE", newspape1.getTitle());
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+        }
     }
 }
 

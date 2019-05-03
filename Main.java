@@ -4,7 +4,7 @@
  * to start the application.
  * 
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
- * @version 2019-03-18.
+ * @version 2019-05-01.
  */
 public class Main 
 {
@@ -14,7 +14,14 @@ public class Main
      */
     public static void main(String[] args)
     {
-        ApplicationUI appUI = new ApplicationUI();
-        appUI.startApplication();
+        try
+        {
+            ApplicationUI appUI = new ApplicationUI();
+            appUI.startApplication();
+        }
+        catch (ValueOutOfRangeExcpection e)
+        {
+            System.out.println("Something went wrong. Please contact ostumer service!");
+        }
     }
 }

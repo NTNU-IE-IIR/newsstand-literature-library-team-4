@@ -1,19 +1,18 @@
 /**
- * Super class, holds information about litterature
+ * Super class, holds information about literature.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
+ * @version 2019-05-01.
  */
 public abstract class Literature
 {
     private String title;
     private String publisher;
-    private String literatureType;
 
     /**
-     * Constructor for objects of class Litterature
-     * @param title is the title of the litterature
-     * @param publisher is the publisher of the litterature
+     * Constructor for objects of class Literature
+     * @param title is the title of the literature
+     * @param publisher is the publisher of the literature
      */
     public Literature(String title, String publisher)
     {
@@ -44,7 +43,7 @@ public abstract class Literature
     }
 
     /**
-     * Gets information about the title of the selected litterature.
+     * Gets information about the title of the selected literature.
      * @return is the title to return.
      */
     public String getTitle()
@@ -53,7 +52,7 @@ public abstract class Literature
     }
 
     /**
-     * Gets information about the publisher of the selected litterature.
+     * Gets information about the publisher of the selected literature.
      * @return is the publisher to return.
      */
     public String getPublisher()

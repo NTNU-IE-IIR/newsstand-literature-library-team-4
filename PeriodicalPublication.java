@@ -2,8 +2,8 @@
 /**
  * Holds information about the Periodical Publications.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
+ * @version 2019-05-01.
  */
 public abstract class PeriodicalPublication extends Literature
 {
@@ -16,7 +16,7 @@ public abstract class PeriodicalPublication extends Literature
      * @param publisher is the publisher of the periodical publication.
      * @param literatureType is the type of the periodical publication.
      */
-    public PeriodicalPublication(String title, String publisher, 
+    protected PeriodicalPublication(String title, String publisher, 
                                   String literatureType)
     {
         super(title, publisher);
@@ -24,10 +24,10 @@ public abstract class PeriodicalPublication extends Literature
     }
 
     /**
-     * Method to get the litterature type of the periodical publication
-     * @return is the variable which holds the litterature type to return.
+     * Method to get the literature type of the periodical publication
+     * @return is the variable which holds the literature type to return.
      */
-    public String getLiteratureType()
+    protected String getLiteratureType()
     {
         return this.literatureType;
     }

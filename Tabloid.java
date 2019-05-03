@@ -1,10 +1,6 @@
 /**
-<<<<<<< HEAD
- * Represent the tabloid.
-=======
- * Represent the Tabloid.
->>>>>>> 106f0055be10940136b32ce745dc1eb17363d6e2
- *
+ * Holds information about the tabloid.
+ * 
  * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
  * @version 2019.03.18.
  */
@@ -20,7 +16,7 @@ public class Tabloid extends PeriodicalPublication
      * @param genre The genre is the genre of the tabloid.
      * @param timesPublished is the times this tabloid is published per year.
      */
-    public Tabloid(String title, String publisher, 
+    protected Tabloid(String title, String publisher, 
     String literatureType, String timesPublished)
     {
         super(title, publisher, literatureType);
@@ -31,7 +27,7 @@ public class Tabloid extends PeriodicalPublication
      * Returns the times this tabloid is published in a year.
      * @return the times this tabloid is published in a year.   
      */
-    public String getTimesPublished()
+    protected String getTimesPublished()
     {
         return this.timesPublished;
     }
@@ -41,7 +37,7 @@ public class Tabloid extends PeriodicalPublication
      * Title, publisher, genre and times publishe in a year.
      * @return The tabloid´s details.
      */
-    public String getDetails()
+    protected String getDetails()
     {
         return "Title: " + getTitle() + ", " + 
                "Publisher; "  + getPublisher() + ", " +
