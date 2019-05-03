@@ -81,7 +81,7 @@ public class LiteratureRegister
         while (it.hasNext())
         {
             Literature l = it.next();
-            if (l.getPublisher().equalsIgnoreCase(publisher))
+            if (l.getPublisher().toLowerCase().contains(publisher))
             {
                 foundLiterature.add(l);
             }
