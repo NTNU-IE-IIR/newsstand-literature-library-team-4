@@ -17,11 +17,31 @@ public class Tabloid extends PeriodicalPublication
      * @param timesPublished is the times this tabloid is published per year.
      */
     protected Tabloid(String title, String publisher, 
-    String literatureType, String timesPublished)
+                      String literatureType, String timesPublished)
+                      throws ValueOutOfRangeException
     {
         super(title, publisher, literatureType);
-        this.timesPublished = checkValidStringInput(timesPublished);
+        setTimesPublished(timesPublished);
     }
+        
+    private void setTimesPublished(String noOfPublishes) throws ValueOutOfRangeException
+    {
+        if (noOfPublishes == null )
+        {
+            throw new IllegalArgumentException("INVALID VALUE, right value must be declared");
+        }
+        else
+        {
+            if(noOfPublishes.length() == 0)
+            {
+                throw new ValueOutOfRangeException("Times published was empty");
+            }
+            else
+            {
+                this.timesPublished = noOfPublishes;
+            }
+        }
+    } 
 
     /**
      * Returns the times this tabloid is published in a year.

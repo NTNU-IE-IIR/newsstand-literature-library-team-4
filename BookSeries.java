@@ -17,9 +17,9 @@ public class BookSeries extends Literature
      * @param author is the name of the author of the bookseries.
      * @param bookSeriesTitle is the name of the bookseries.
      */
-    public BookSeries(String title, String publisher, 
+    protected BookSeries(String title, String publisher, 
                       String bookSeriesTitle, int numberOfBooks) 
-                      throws ValueOutOfRangeExcpection 
+                      throws ValueOutOfRangeException 
     {
         super(title, publisher);
         this.bookSeriesTitle = checkValidStringInput(bookSeriesTitle);
@@ -35,11 +35,11 @@ public class BookSeries extends Literature
         return this.bookSeriesTitle;
     }
     
-    private void setNumberOfBooks(int noOfBooks) throws ValueOutOfRangeExcpection
+    private void setNumberOfBooks(int noOfBooks) throws ValueOutOfRangeException
     {
         if (noOfBooks < 0)
         {
-            throw new ValueOutOfRangeExcpection("Number of books was negative. Must be positive.");
+            throw new ValueOutOfRangeException("Number of books was negative. Must be positive.");
         }
         else
         {

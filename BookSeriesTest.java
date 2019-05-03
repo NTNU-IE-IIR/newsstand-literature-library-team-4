@@ -52,7 +52,7 @@ public class BookSeriesTest
             BookSeries bookSeri1 = new BookSeries("test", "test", "test", 1);
             assertEquals("test", bookSeri1.getTitle());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }
@@ -67,9 +67,10 @@ public class BookSeriesTest
         try
         {
             BookSeries bookSeri1 = new BookSeries(null, "test", "test", 1);
+            assertEquals(1, bookSeri1.getNumberOfBooks());
             assertEquals("INVALID VALUE", bookSeri1.getTitle());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }    
@@ -85,7 +86,7 @@ public class BookSeriesTest
             BookSeries bookSeri1 = new BookSeries("test", "test", "test", 1);
             assertEquals("test", bookSeri1.getPublisher());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }
@@ -103,7 +104,7 @@ public class BookSeriesTest
             assertEquals("test name", bookSeri1.getTitle());
             assertEquals("1000", bookSeri1.getPublisher());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }

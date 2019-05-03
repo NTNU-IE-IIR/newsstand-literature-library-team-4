@@ -18,11 +18,30 @@ public class Magazine extends PeriodicalPublication
      */
     protected Magazine(String title, String publisher, 
                     String literatureType, String genre)
+                    throws ValueOutOfRangeException
     {
         super(title, publisher, literatureType);
-        this.genre = checkValidStringInput(genre);
-        
+        setGenre(genre);       
     }
+    
+    private void setGenre (String magGenre) throws ValueOutOfRangeException
+    {
+        if (magGenre == null)
+        {
+            throw new IllegalArgumentException("INVALID VALUE, right value must be declared.");
+        }
+        else
+        {
+            if(magGenre.length() == 0)
+            {
+                throw new ValueOutOfRangeException("Genre was empty");
+            }
+            else
+            {
+                this.genre = magGenre;
+            }
+        } 
+    } 
     
     /**
      * Gets information about which genre the magazine is.

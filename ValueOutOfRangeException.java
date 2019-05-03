@@ -5,12 +5,12 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class ValueOutOfRangeExcpection extends Exception
+public class ValueOutOfRangeException extends Exception
 {
     /**
      * Constructor for objects of class ValueOutOfRangeExcpetion
      */
-    public ValueOutOfRangeExcpection(String message)
+    public ValueOutOfRangeException(String message)
     {
         super(message);
     }

@@ -19,7 +19,7 @@ public class Main
             ApplicationUI appUI = new ApplicationUI();
             appUI.startApplication();
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
             System.out.println("Something went wrong. Please contact costumer service!");
         }

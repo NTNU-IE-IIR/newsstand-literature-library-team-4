@@ -52,7 +52,7 @@ public class LiteratureRegisterTest
             Literature newspape1 = new Newspaper("test", "test", "test", "test");
             literatu1.addLiterature(newspape1);
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }
@@ -70,7 +70,7 @@ public class LiteratureRegisterTest
             literatu1.addLiterature(newspape1);
             assertSame("test name", newspape1.getTitle());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }
@@ -88,7 +88,7 @@ public class LiteratureRegisterTest
             literatu1.addLiterature(null);
             assertEquals("INVALID VALUE", newspape1.getTitle());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }

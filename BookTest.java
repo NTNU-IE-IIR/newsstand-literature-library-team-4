@@ -47,8 +47,14 @@ public class BookTest
     @Test 
     public void testTitle() 
     {
-        Book book1 = new Book("test", "test", "test", 1);
-        assertEquals("test", book1.getTitle());
+        try
+        {
+            Book book1 = new Book("test", "test", "test", 1);
+            assertEquals("test", book1.getTitle());
+        }
+        catch (ValueOutOfRangeException e)
+        {
+        }
     }
     
     /**
@@ -58,8 +64,14 @@ public class BookTest
     @Test 
     public void testTitleNeg() 
     {
-        Book book1 = new Book(null, "test", "test", 1);
-        assertEquals("INVALID VALUE", book1.getTitle());
+        try
+        {
+            Book book1 = new Book(null, "test", "test", 1);
+            assertEquals("INVALID VALUE", book1.getTitle());
+        }
+        catch (ValueOutOfRangeException e)
+        {
+        }
     }    
     
     /**
@@ -67,8 +79,15 @@ public class BookTest
      */
     @Test
     public void testPublisher()
-    {   Book book1 = new Book("test", "test", "test", 1);
-        assertEquals("test", book1.getPublisher());
+    {   
+        try
+        {
+            Book book1 = new Book("test", "test", "test", 1);
+            assertEquals("test", book1.getPublisher());
+        }
+        catch (ValueOutOfRangeException e)
+        {
+        }
     }
     
     /**
@@ -77,10 +96,15 @@ public class BookTest
     @Test
     public void testInit()
     {
-        Book book1 = new Book("test name", "1000",
-                              "test", 1);
-        assertEquals("test name", book1.getTitle());
-        assertEquals("1000", book1.getPublisher());
+        try
+        {
+            Book book1 = new Book("test name", "1000",
+                                  "test", 1);
+            assertEquals("test name", book1.getTitle());
+            assertEquals("1000", book1.getPublisher());
+        }
+        catch (ValueOutOfRangeException e)
+        {
+        }
     }
-    
 }

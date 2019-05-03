@@ -18,14 +18,14 @@ public class Newspaper extends PeriodicalPublication
      * @param timesPublished is the times this newspaper is published per year.
      */
     protected Newspaper(String title, String publisher, 
-    String literatureType, String timesPublished)
-    throws ValueOutOfRangeExcpection
+                        String literatureType, String timesPublished)
+                        throws ValueOutOfRangeException
     {
         super(title, publisher, literatureType);
         setTimesPublished(timesPublished);
     }
         
-    private void setTimesPublished(String noOfPublishes) throws ValueOutOfRangeExcpection
+    private void setTimesPublished(String noOfPublishes) throws ValueOutOfRangeException
     {
         if (noOfPublishes == null )
         {
@@ -35,7 +35,7 @@ public class Newspaper extends PeriodicalPublication
         {
             if(noOfPublishes.length() == 0)
             {
-                throw new ValueOutOfRangeExcpection("Title was empty");
+                throw new ValueOutOfRangeException("Times published was empty");
             }
             else
             {

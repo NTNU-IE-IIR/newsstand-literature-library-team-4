@@ -1,278 +1,297 @@
-import java.util.InputMismatchException;
-import java.lang.IllegalArgumentException;
-import java.util.Scanner;
-import java.util.Iterator;
-import java.util.ArrayList;
-
-/**
- * Makes up the user interface (text based) of the application.
- * Responsible for all user interaction, like displaying the menu
- * and receiving input from the user.
- * 
- * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
- * @version 2019-05-01.
- */
-
-public class ApplicationUI
-{
-
-    // The menu that will be displayed.
-    private String[] menuItems = {
-            "1. Add new newspaper",
-            "2. Add new magazine",
-            "3. Add new tabloid",
-            "4. Add new book",
-            "5. Add new bookserie",
-            "6. Find literature by title",
-            "7. Find literature by publisher",
-            "8. List all literature",
-            "9. Remove literature from register",
-            "10. Add literaturedummies to list",
-        };
-
-    private LiteratureRegister literatureReg;
-
+    import java.util.InputMismatchException;
+    import java.lang.IllegalArgumentException;
+    import java.util.Scanner;
+    import java.util.Iterator;
+    import java.util.ArrayList;
+    
     /**
-     * Creates an instance of the ApplicationUI User interface. 
+     * Makes up the user interface (text based) of the application.
+     * Responsible for all user interaction, like displaying the menu
+     * and receiving input from the user.
+     * 
+     * @author Prosjektgruppe_4: Karl-Oskar, Johannes, Anders.
+     * @version 2019-05-01.
      */
-    public ApplicationUI() throws ValueOutOfRangeExcpection
+    
+    public class ApplicationUI
     {
-        this.literatureReg = new LiteratureRegister();
-    }
-
-    /**
-     * Starts the application by showing the menu and retrieving input from the
-     * user.
-     */
-    public void startApplication() 
-    {
-        boolean quit = false;
-        int maxMenuItemNumber = menuItems.length + 1;
-
-        while (!quit) 
+    
+        // The menu that will be displayed.
+        private String[] menuItems = {
+                "1. Add new newspaper",
+                "2. Add new magazine",
+                "3. Add new tabloid",
+                "4. Add new book",
+                "5. Add new bookserie",
+                "6. Find literature by title",
+                "7. Find literature by publisher",
+                "8. List all literature",
+                "9. Remove literature from register",
+                "10. Add literaturedummies to list",
+            };
+    
+        private LiteratureRegister literatureReg;
+    
+        /**
+         * Creates an instance of the ApplicationUI User interface. 
+         */
+        public ApplicationUI() throws ValueOutOfRangeException
         {
-            try 
+            this.literatureReg = new LiteratureRegister();
+        }
+    
+        /**
+         * Starts the application by showing the menu and retrieving input from the
+         * user.
+         */
+        public void startApplication() 
+        {
+            boolean quit = false;
+            int maxMenuItemNumber = menuItems.length + 1;
+    
+            while (!quit) 
             {
-                int menuSelection = this.showMenu();
-                switch (menuSelection) 
+                try 
                 {
-                    case 1:
-                    this.addNewNewspaper();
-                    break;
-
-                    case 2:
-                    this.addNewMagazine();
-                    break;
-
-                    case 3:
-                    this.addNewTabloid();
-                    break;
-
-                    case 4:
-                    this.addNewBook();
-                    break;
-
-                    case 5:
-                    this.addNewBookSeries();
-                    break;
-
-                    case 6:
-                    this.findLiteratureByTitle();
-                    break;
-
-                    case 7:
-                    this.findLiteratureByPublisher();
-                    break;
-
-                    case 8:
-                    this.listAllLiterature();
-                    break;
-
-                    
-                    case 9:
-                    this.removeLiterature();
-                    break;
-                    
-
-                    case 10:
-                    this.fillLiteratureRegisterWithDummies();
-                    break;
-
-                    case 11:
-                    System.out.print("\nThank you for using Application");
-                    System.out.print(" v2019.03.06. Bye!\n");
-                    quit = true;
-                    break;
-
-                    default:
+                    int menuSelection = this.showMenu();
+                    switch (menuSelection) 
+                    {
+                        case 1:
+                        this.addNewNewspaper();
+                        break;
+    
+                        case 2:
+                        this.addNewMagazine();
+                        break;
+    
+                        case 3:
+                        this.addNewTabloid();
+                        break;
+    
+                        case 4:
+                        this.addNewBook();
+                        break;
+    
+                        case 5:
+                        this.addNewBookSeries();
+                        break;
+    
+                        case 6:
+                        this.findLiteratureByTitle();
+                        break;
+    
+                        case 7:
+                        this.findLiteratureByPublisher();
+                        break;
+    
+                        case 8:
+                        this.listAllLiterature();
+                        break;
+    
+                        
+                        case 9:
+                        this.removeLiterature();
+                        break;
+                        
+    
+                        case 10:
+                        this.fillLiteratureRegisterWithDummies();
+                        break;
+    
+                        case 11:
+                        System.out.print("\nThank you for using Application");
+                        System.out.print(" v2019.05.01. Bye!\n");
+                        quit = true;
+                        break;
+    
+                        default:
+                    }
+                } 
+                catch (InputMismatchException ime) 
+                {
+                    System.out.println("\nERROR: Please provide a number between" +
+                        " 1 and " + maxMenuItemNumber + "..\n");
                 }
-            } 
-            catch (InputMismatchException ime) 
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("\nERROR: Illegal input used!");
+                }
+            }        
+        }
+    
+        /**
+         * Displays the menu to the user, and waits for the users input. The user is
+         * expected to input an integer between 1 and the max number of menu items. 
+         * If the user inputs anything else, an InputMismatchException is thrown. 
+         * The method returns the valid input from the user.
+         *
+         * @return the menu number (between 1 and max menu item number) provided 
+         * by the user.
+         * @throws InputMismatchException if user enters an invalid number/menu 
+         * choice
+         */
+        private int showMenu() throws InputMismatchException 
+        {
+            System.out.println("\n**** Application v2019.05.01 ****\n");
+            // Display the menu
+            for ( String menuItem : menuItems )
             {
-                System.out.println("\nERROR: Please provide a number between" +
-                    " 1 and " + maxMenuItemNumber + "..\n");
+                System.out.println(menuItem);
+            }
+            int maxMenuItemNumber = menuItems.length + 1;
+            // Add the "Exit"-choice to the menu
+            System.out.println(maxMenuItemNumber + ". Exit\n");
+            System.out.println("Please choose menu item (1-" + 
+                maxMenuItemNumber + "): ");
+            // Read input from user
+            Scanner reader = new Scanner(System.in);
+            int menuSelection = reader.nextInt();
+            if ((menuSelection < 1) || (menuSelection > maxMenuItemNumber)) 
+            {
+                throw new InputMismatchException();
+            }
+            return menuSelection;
+        }
+    
+        // ------ The methods below this line are "helper"-methods, 
+        // ------ used from the menu ----
+        // ------ All these methods are made private, 
+        // ------ since they are only used by the menu ---
+    
+        /**
+         * Add a new newspaper to the register.
+         * In this method you have to add code to ask the
+         * user for the necessary information you need to 
+         * create an instance of the product, which you
+         * then send as a parameter to the addNewspaper()-
+         * method of the register.
+         * Remember to also handle invalid input from the
+         * user!!
+         */
+        void addNewNewspaper()
+        {
+            try
+            {
+                //The user has chosen to add a newspaper.
+                System.out.println("Please enter the title of the newspaper: ");
+                Scanner reader = new Scanner(System.in);
+                String title = reader.nextLine();
+    
+                System.out.println("Please enter the publisher of the newspaper: ");
+                String publisher = reader.nextLine();
+    
+                System.out.println("Please enter the literaturetype: ");
+                String literatureType = reader.nextLine();
+    
+                System.out.println("Please enter the number of publishes " 
+                    + "of the newspaper: ");
+                String timesPublished = reader.nextLine();
+    
+                //Adds the newspaper to the register.
+                Literature literature = new Newspaper(title, publisher, 
+                        literatureType, timesPublished);
+                this.literatureReg.addLiterature(literature);
+    
+                System.out.println("The newspaper " + title + " has been added to the register."
+                    + "\n");
             }
             catch (IllegalArgumentException e)
             {
-                System.out.println("\nERROR: Illegal input used!");
+                System.out.println("\nERROR: Wrong inputs provided for Title ....");
             }
-        }        
-    }
-
-    /**
-     * Displays the menu to the user, and waits for the users input. The user is
-     * expected to input an integer between 1 and the max number of menu items. 
-     * If the user inputs anything else, an InputMismatchException is thrown. 
-     * The method returns the valid input from the user.
-     *
-     * @return the menu number (between 1 and max menu item number) provided 
-     * by the user.
-     * @throws InputMismatchException if user enters an invalid number/menu 
-     * choice
-     */
-    private int showMenu() throws InputMismatchException 
-    {
-        System.out.println("\n**** Application v2019.05.01 ****\n");
-        // Display the menu
-        for ( String menuItem : menuItems )
-        {
-            System.out.println(menuItem);
+    
+            catch (ValueOutOfRangeException e)
+            {
+                System.out.println("Title, publisher, literaturetype or "
+                    + "number of publishes per year was out of range");
+                System.out.println("Add newspaper was canceled." + "\n");
+    
+            }
         }
-        int maxMenuItemNumber = menuItems.length + 1;
-        // Add the "Exit"-choice to the menu
-        System.out.println(maxMenuItemNumber + ". Exit\n");
-        System.out.println("Please choose menu item (1-" + 
-            maxMenuItemNumber + "): ");
-        // Read input from user
-        Scanner reader = new Scanner(System.in);
-        int menuSelection = reader.nextInt();
-        if ((menuSelection < 1) || (menuSelection > maxMenuItemNumber)) 
-        {
-            throw new InputMismatchException();
-        }
-        return menuSelection;
-    }
-
-    // ------ The methods below this line are "helper"-methods, 
-    // ------ used from the menu ----
-    // ------ All these methods are made private, 
-    // ------ since they are only used by the menu ---
-
-    /**
-     * Add a new newspaper to the register.
-     * In this method you have to add code to ask the
-     * user for the necessary information you need to 
-     * create an instance of the product, which you
-     * then send as a parameter to the addNewspaper()-
-     * method of the register.
-     * Remember to also handle invalid input from the
-     * user!!
-     */
-    void addNewNewspaper()
+    
+        /**
+         * Add a new product/literature to the register.
+         * In this method you have to add code to ask the
+         * user for the necessary information you need to 
+         * create an instance of the product, which you
+         * then send as a parameter to the addNewspaper()-
+         * method of the register.
+         * Remember to also handle invalid input from the
+         * user!!
+         */
+    void addNewMagazine()
     {
         try
         {
-            //The user has chosen to add a newspaper.
-            System.out.println("Please enter the title of the newspaper: ");
+            //The user has chosen to add a magazine.
+            System.out.println("Please enter the title of the magazine: ");
             Scanner reader = new Scanner(System.in);
             String title = reader.nextLine();
-
-            System.out.println("Please enter the publisher of the newspaper: ");
+    
+            System.out.println("Please enter the publisher of the magazine: ");
             String publisher = reader.nextLine();
-
+    
             System.out.println("Please enter the literaturetype: ");
             String literatureType = reader.nextLine();
-
-            System.out.println("Please enter the number of publishes " 
-                + "of the newspaper: ");
-            String timesPublished = reader.nextLine();
-
-            //Adds the newspaper to the register.
-            Literature literature = new Newspaper(title, publisher, 
-                    literatureType, timesPublished);
+    
+            System.out.println("Please enter the genre of the magazine ");
+            String genre = reader.nextLine();
+    
+            //Adds the magazine to the register.
+            Literature literature = new Magazine(title, publisher, 
+                    literatureType, genre);
             this.literatureReg.addLiterature(literature);
-
-            System.out.println("The newspaper " + title + " has been added to the register."
-                + "\n");
         }
-        catch (IllegalArgumentException e)
+        catch (ValueOutOfRangeException e)
         {
-            System.out.println("\nERROR: Wrong inputs provided for Title ....");
-        }
-
-        catch (ValueOutOfRangeExcpection e)
-        {
-            System.out.println("Title, publisher, literaturetype or "
-                + "number of publishes per year was out of range");
-            System.out.println("Add newspaper was canceled." + "\n");
-
+            System.out.println("Title, publisher, literaturtype or "
+                + "genre was out of range");
+            System.out.println("Add tabloid was canceled." + "\n");
         }
     }
-
-    /**
-     * Add a new product/literature to the register.
-     * In this method you have to add code to ask the
-     * user for the necessary information you need to 
-     * create an instance of the product, which you
-     * then send as a parameter to the addNewspaper()-
-     * method of the register.
-     * Remember to also handle invalid input from the
-     * user!!
-     */
-    void addNewMagazine()
-    {
-        //The user has chosen to add a magazine.
-        System.out.println("Please enter the title of the magazine: ");
-        Scanner reader = new Scanner(System.in);
-        String title = reader.nextLine();
-
-        System.out.println("Please enter the publisher of the magazine: ");
-        String publisher = reader.nextLine();
-
-        System.out.println("Please enter the literaturetype: ");
-        String literatureType = reader.nextLine();
-
-        System.out.println("Please enter the genre of the magazine ");
-        String genre = reader.nextLine();
-
-        //Adds the magazine to the register.
-        Literature literature = new Magazine(title, publisher, 
-                literatureType, genre);
-        this.literatureReg.addLiterature(literature);
-    }
-
-    /**
-     * Add a new product/literature to the register.
-     * In this method you have to add code to ask the
-     * user for the necessary information you need to 
-     * create an instance of the product, which you
-     * then send as a parameter to the addNewspaper()-
-     * method of the register.
-     * Remember to also handle invalid input from the
-     * user!!
-     */
+    
+        /**
+         * Add a new product/literature to the register.
+         * In this method you have to add code to ask the
+         * user for the necessary information you need to 
+         * create an instance of the product, which you
+         * then send as a parameter to the addNewspaper()-
+         * method of the register.
+         * Remember to also handle invalid input from the
+         * user!!
+         */
     void addNewTabloid()
     {
-        //The user has chosen to add a tabloid.
-        System.out.println("Please enter the title of the tabloid: ");
-        Scanner reader = new Scanner(System.in);
-        String title = reader.nextLine();
-
-        System.out.println("Please enter the publisher of the magazine: ");
-        String publisher = reader.nextLine();
-
-        System.out.println("Please enter the literaturetype: ");
-        String literatureType = reader.nextLine();
-
-        System.out.println("Please enter the number of publishes " 
-            + "of the tabloid: ");
-        String timesPublished = reader.nextLine();
-
-        //Adds the tabloid to the register.
-        Literature literature = new Magazine(title, publisher, 
-                literatureType, timesPublished);
-        this.literatureReg.addLiterature(literature);
+        try
+        {
+            //The user has chosen to add a tabloid.
+            System.out.println("Please enter the title of the tabloid: ");
+            Scanner reader = new Scanner(System.in);
+            String title = reader.nextLine();
+    
+            System.out.println("Please enter the publisher of the magazine: ");
+            String publisher = reader.nextLine();
+    
+            System.out.println("Please enter the literaturetype: ");
+            String literatureType = reader.nextLine();
+    
+            System.out.println("Please enter the number of publishes " 
+                + "of the tabloid: ");
+            String timesPublished = reader.nextLine();
+    
+            //Adds the tabloid to the register.
+            Literature literature = new Magazine(title, publisher, 
+                    literatureType, timesPublished);
+            this.literatureReg.addLiterature(literature);
+        }
+        catch (ValueOutOfRangeException e)
+        {
+            System.out.println("Title, publisher, literaturtype or "
+                + "number of publishes was out of range");
+            System.out.println("Add tabloid was canceled." + "\n");
+        }
     }
+    
 
     /**
      * Add a new product/literature to the register.
@@ -286,25 +305,33 @@ public class ApplicationUI
      */
     void addNewBook()
     {
-        //The user has chosen to add a book.
-        System.out.println("Please enter the title of the book: ");
-        Scanner reader = new Scanner(System.in);
-        String title = reader.nextLine();
+        try
+        {
+            //The user has chosen to add a book.
+            System.out.println("Please enter the title of the book: ");
+            Scanner reader = new Scanner(System.in);
+            String title = reader.nextLine();
 
-        System.out.println("Please enter the publisher of the book: ");
-        String publisher = reader.nextLine();
+            System.out.println("Please enter the publisher of the book: ");
+            String publisher = reader.nextLine();
 
-        System.out.println("Please enter the author of this book: ");
-        String author = reader.nextLine();
+            System.out.println("Please enter the author of this book: ");
+            String author = reader.nextLine();
 
-        System.out.println("Please enter the bookedition: ");
-        int bookEdition = reader.nextInt();
+            System.out.println("Please enter the bookedition: ");
+            int bookEdition = reader.nextInt();
 
-        //Adds the book to the register.
-        Literature literature = new Book(title, publisher, 
-                author, bookEdition);
-        this.literatureReg.addLiterature(literature);
-
+            //Adds the book to the register.
+            Literature literature = new Book(title, publisher, 
+                                             author, bookEdition);
+            this.literatureReg.addLiterature(literature);
+        }
+        catch (ValueOutOfRangeException e)
+        {
+            System.out.println("Title, publisher, author or "
+                + "number of book edition was out of range");
+            System.out.println("Add book was canceled." + "\n");
+        }
     }
 
     /**
@@ -343,11 +370,11 @@ public class ApplicationUI
             System.out.println("The bookseries " + title + " has been added to the register."
                 + "\n");
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
             System.out.println("Title, publisher, title of the bookseries or "
                 + "number of books was out of range");
-            System.out.println("Add newspaper was canceled." + "\n");
+            System.out.println("Add bookseries was canceled." + "\n");
         }
     }
 
@@ -568,7 +595,7 @@ public class ApplicationUI
             this.literatureReg.addLiterature(new Book ("Snømannen", "Aschehoug","Jo Nesbø",
                     3));
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
             //Just leave it..... Ikke skriv dette!! Aldri, dette er et untak pga dummies
         }

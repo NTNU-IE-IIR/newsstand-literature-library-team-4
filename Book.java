@@ -18,19 +18,25 @@ public class Book extends Literature
      * @param bookEdition is the number of which edition the book is.
      */
     protected Book(String title, String publisher, String author, int bookEdition)
+                   throws ValueOutOfRangeException 
     {
         super(title, publisher);
         this.author = author;
-        if (bookEdition < 1)
+        setBookEdition(bookEdition);
+    }
+
+        private void setBookEdition(int editionOfBook) throws ValueOutOfRangeException
+    {
+        if (editionOfBook < 0)
         {
-            this.bookEdition = 1;
+            throw new ValueOutOfRangeException("Book edition was negative. Must be positive.");
         }
         else
         {
-            this.bookEdition = bookEdition;
+            this.bookEdition = editionOfBook;
         }
     }
-
+    
     /**
      * Returns the number of which edition the book is.
      * @return holds the variable of which edition the book is.

@@ -52,7 +52,7 @@ public class NewspaperTest
             Newspaper newspaper1 = new Newspaper("test", "test", "test", "test");
             assertEquals("test", newspaper1.getTitle());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }
@@ -70,7 +70,7 @@ public class NewspaperTest
             Newspaper newspaper1 = new Newspaper(null, "test", "test", "test");
             assertEquals("INVALID VALUE", newspaper1.getTitle());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }    
@@ -86,7 +86,7 @@ public class NewspaperTest
             Newspaper newspaper1 = new Newspaper("test", "test", "test", "test");
             assertEquals("test", newspaper1.getPublisher());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }
@@ -104,7 +104,7 @@ public class NewspaperTest
             assertEquals("test name", newspaper1.getTitle());
             assertEquals("test publisher", newspaper1.getPublisher());
         }
-        catch (ValueOutOfRangeExcpection e)
+        catch (ValueOutOfRangeException e)
         {
         }
     }

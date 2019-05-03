@@ -17,7 +17,7 @@ public abstract class PeriodicalPublication extends Literature
      * @param literatureType is the type of the periodical publication.
      */
     protected PeriodicalPublication(String title, String publisher, 
-                                  String literatureType)
+                                    String literatureType)
     {
         super(title, publisher);
         this.literatureType = literatureType;

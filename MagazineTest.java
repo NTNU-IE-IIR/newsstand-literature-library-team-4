@@ -45,8 +45,14 @@ public class MagazineTest
     @Test 
     public void testTitle() 
     {
-        Magazine magazine1 = new Magazine("test", "test", "test", "test");
-        assertEquals("test", magazine1.getTitle());
+        try
+        {
+            Magazine magazine1 = new Magazine("test", "test", "test", "test");
+            assertEquals("test", magazine1.getTitle());
+        }
+        catch (ValueOutOfRangeException e)
+        {
+        }
     }
     
     /**
@@ -56,8 +62,14 @@ public class MagazineTest
     @Test 
     public void testTitleNeg() 
     {
-        Magazine magazine1 = new Magazine(null, "test", "test", "test");
-        assertEquals("INVALID VALUE", magazine1.getTitle());
+        try
+        {
+            Magazine magazine1 = new Magazine(null, "test", "test", "test");
+            assertEquals("INVALID VALUE", magazine1.getTitle());
+        }
+        catch (ValueOutOfRangeException e)
+        {
+        }
     }    
     
     /**
@@ -66,8 +78,14 @@ public class MagazineTest
     @Test
     public void testPublisher()
     {
-        Magazine magazine1 = new Magazine("test", "test", "test", "test");
-        assertEquals("test", magazine1.getPublisher());
+        try
+        {
+            Magazine magazine1 = new Magazine("test", "test", "test", "test");
+            assertEquals("test", magazine1.getPublisher());
+        }
+        catch (ValueOutOfRangeException e)
+        {
+        }
     }
     
     /**
@@ -76,10 +94,16 @@ public class MagazineTest
     @Test
     public void testInit()
     {
-        Magazine magazine1 = new Magazine("test name", "1000",  
+        try
+        {
+            Magazine magazine1 = new Magazine("test name", "1000",  
                                           "test", "test");
-        assertEquals("test name", magazine1.getTitle());
-        assertEquals("1000", magazine1.getPublisher());
+            assertEquals("test name", magazine1.getTitle());
+            assertEquals("1000", magazine1.getPublisher());
+        }
+        catch (ValueOutOfRangeException e)
+        {
+        }
     }
     
 }
