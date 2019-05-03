@@ -1,3 +1,6 @@
+import java.lang.IllegalArgumentException;
+import java.io.*;
+
 /**
  * Super class, holds information about literature.
  *
@@ -20,25 +23,43 @@ public abstract class Literature
         this.publisher = checkValidStringInput(publisher);
     }
 
-    /**
+    // /**
+     // * Checks the String brought into the function towards null, 
+     // * and returns "INVALID VALUE"
+     // * if the String equals null.
+     // * @param stringToCheck is the input brought into the function.
+     // * @return stringToReturn is the String which will be returned.
+     // */
+    // protected String checkValidStringInput(String stringToCheck)
+    // {
+        // String stringToReturn = null;
+        // if (stringToCheck != null)
+        // {
+            // stringToReturn = stringToCheck;
+            // return stringToReturn;
+        // }
+        // else
+        // {
+            // stringToReturn = "INVALID VALUE";
+            // return stringToReturn;
+        // }
+    // }
+    
+     /**
      * Checks the String brought into the function towards null, 
-     * and returns "INVALID VALUE"
-     * if the String equals null.
-     * @param stringToCheck is the input brought into the function.
-     * @return stringToReturn is the String which will be returned.
+     * and throws an invaldargumentexception if it is invalid
      */
-    protected String checkValidStringInput(String stringToCheck)
+    protected String checkValidStringInput(String stringToCheck) throws IllegalArgumentException
     {
         String stringToReturn = null;
-        if (stringToCheck != null)
+        if (stringToCheck != null || !stringToCheck.isEmpty())
         {
             stringToReturn = stringToCheck;
             return stringToReturn;
         }
         else
         {
-            stringToReturn = "INVALID VALUE";
-            return stringToReturn;
+            throw new IllegalArgumentException();
         }
     }
 
@@ -59,5 +80,5 @@ public abstract class Literature
     {
         return this.publisher;
     }
-
+    
 }
